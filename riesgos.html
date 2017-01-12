@@ -1,0 +1,149 @@
+<!DOCTYPE html> 
+<html ng-app="App">
+	<head>
+		<title>Cotizador Web</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	</head>
+
+	<body class="bg-orange">
+
+		<ng-include src="'menu.html'"></ng-include>
+        <br></br>
+
+  
+
+
+    	<div class="container">	
+
+    		<ng-include src="'modales.html'"></ng-include>		
+
+			<form ng-submit="addriesgoclase(datamodel)">
+
+			<div class='row'>
+<!--
+	<div class="col-md-2">
+	<button type="button" class="btn btn-primary btn-sm" ><i class="fa fa-cube"></i></button>
+	Riesgo :<select  ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo" type="text" class="form-control" ng-model="datamodel.riesgo" required =""  ></select>
+	</div>
+-->
+
+	<div class="col-md-4">
+	<button type="button" class="btn btn-primary btn-sm" ><i class="fa fa-cube"></i></button>
+	Riesgo :<select multiple ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo"  type="text" class="form-control" ng-model="datamodel.riesgo"   required =""  ></select>
+	</div>
+
+<!--
+	<div class="col-md-3">
+	<a href='#autos' class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+	Modelo | Marca:
+	<select ng-options="item as item.id_modelo__name_model for item in man_autos track by item.id" type="text" class="form-control" ng-model="datamodel.modelo" required ="" ng-change='marca(datamodel.modelo)' ></select>
+	{{detalle}}
+	</div>
+-->
+
+	<div class="col-md-3">
+	<a href='#autos' class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+	Modelo | Marca:
+<select multiple ng-options="item as item.id_modelo__name_model for item in man_autos track by item.id"  type="text" class="form-control" ng-model="datamodel.modelo"   required =""  ></select>
+	</div>
+
+<!--
+		<div class="col-md-4">
+		<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aseguradora"><i class="fa fa-plus"></i></button>
+                Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="datamodel.aseguradora" required =""  ></select>
+	        </div>
+-->
+
+
+<div class="col-md-4">
+<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aseguradora"><i class="fa fa-plus"></i></button>
+Aseguradora:<select multiple ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad"  type="text" class="form-control" ng-model="datamodel.aseguradora"  required =""  ></select>
+</div>
+
+			
+
+		
+
+			<button type='submit' class='btn btn-primary'>Agregar</button>
+			
+			</form>
+
+<div>
+<br>
+</div>
+
+<br></br>
+
+<br></br>
+<div class="container">
+<h4>Descargar CSV </h4>
+<fieldset class="field_container align_right">
+  <button type="button" class="btn btn-info btn-lg" ><a href="http://cotizador.hermes.pe:800/expries.php" class="export">Exportar</a></button>
+</fieldset>
+</div>
+
+
+<br></br>
+
+<br></br>
+<h4>Riesgos</h4>
+
+<table class="table table-striped table-condensed table-hover">
+    
+        <tbody>
+
+            <thead>
+
+            <tr>
+                
+                <th class="id_riesg__tipo_riesgo">Riesgo <a ng-click="sort_by('id_riesg__tipo_riesgo',currentPage)"><i class="icon-sort"></i></a></th>
+                <th class="id_model__id_modelo__name_model">Modelo <a ng-click="sort_by('id_model__id_modelo__name_model',currentPage)"><i class="icon-sort"></i></a></th>
+                <th class="id_model__id_clase__clase">Clase <a ng-click="sort_by('id_model__id_clase__clase',currentPage)"><i class="icon-sort"></i></a></th>
+                <th class="id_model__id_marca__name_marca">Marca <a ng-click="sort_by('id_model__id_marca__name_marca',currentPage)"><i class="icon-sort"></i></a></th>
+                <th class="aseguradora__name_asegurad">Aseguradora <a ng-click="sort_by('aseguradora__name_asegurad',currentPage)"><i class="icon-sort"></i></a></th>
+             
+                <th></th>
+                
+            
+                            
+            </tr>
+
+            </thead>
+
+
+            <tr  ng-repeat="contact in man_riesgos | orderBy:sortingOrder:reverse" class='active' ts-repeat>
+
+                <td>{{contact.id_riesg__tipo_riesgo}}</td>
+                <td>{{contact.id_model__id_modelo__name_model}}</td>
+                <td>{{contact.id_model__id_tipo__clase}}</td>
+                <td>{{contact.id_model__id_marca__name_marca}}</td>
+                <td>{{contact.aseguradora__name_asegurad}}</td>
+                
+                
+
+
+
+
+                
+        
+
+                <td>
+               
+                 <a ng-click="editar(contact)" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editriesg"><i class="fa fa-edit"></i></a>
+                 <a ng-click="eliminarries(contact)" class="btn btn-sm btn-primary" ><i class="fa fa-trash"></i></a>
+                </td>
+
+            </tr>
+        </tbody>
+
+
+        </table>
+				
+			
+
+	</body>
+</html>
