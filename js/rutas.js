@@ -62,6 +62,15 @@
                     templateUrl: 'financiamiento.html',
                     controller: 'Admin'
                 }).
+                when('/primas', {
+                    templateUrl: 'primas.html',
+                    controller: 'Admin'
+                }).
+                 when('/politicas', {
+                    templateUrl: 'politicas.html',
+                    controller: 'Admin'
+                }).
+
 
                 otherwise({
                     redirectTo: '/cotiza'

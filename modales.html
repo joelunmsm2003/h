@@ -509,16 +509,15 @@
 
        <br></br>
 
+    
 
-      Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ></select>
+      Aseguradora :<select ng-options="item as item.name_asegurad for item in aseguradoras" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ></select>
          
        Uso :<select ng-options="item as item.uso for item in uso track by item.id_uso" type="text" class="form-control" ng-model="edit.uso" required ="" ></select>
 
        Modalidad :<select  ng-options="item as item.name_modalidad for item in modalidad track by item.id_modalidad" type="text" class="form-control" ng-model="edit.modalidad" required =""  ></select>
 
        Tipo:<select  ng-options="item as item.clase for item in clases track by item.id_clase" type="text" class="form-control" ng-model="edit.clase" required =""  ></select>
-
-       Categorias :<select  ng-options="item as item.categoria for item in categorias track by item.id_categ" type="text" class="form-control" ng-model="edit.categoria" required =""  ></select>
 
        Programa :<select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="edit.programa" required =""  ></select>
 

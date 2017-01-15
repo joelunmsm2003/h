@@ -12,13 +12,15 @@
 	<body class="bg-orange">
 
 		<ng-include src="'menu.html'"></ng-include>
-        <br></br>
-
-  
+       
+       
 
 
     	<div class="container">	
 
+<h2>Riesgos</h2>
+       <br>
+  
     		<ng-include src="'modales.html'"></ng-include>		
 
 			<form ng-submit="addriesgoclase(datamodel)">
@@ -87,10 +89,23 @@ Aseguradora:<select multiple ng-options="item as item.name_asegurad for item in 
 </div>
 
 
-<br></br>
+       <!--Filtro de Busqueda-->
 
-<br></br>
-<h4>Riesgos</h4>
+        <div class='section '>
+            <i class="fa fa-filter" aria-hidden="true"></i>
+            <label for='filtro'>Filtro</label>
+
+            <div class='row'>
+                <div class='col-md-4'>
+                    <input placeholder='Busqueda' ng-model='data' id='filtro' type="" class='form-control' name="">
+                </div>
+            </div>
+        </div>
+
+        <!--Contador-->
+
+      <label><i class="fa fa-caret-square-o-right" aria-hidden="true"></i>
+        Resultado  <span ng-if='data'>para {{data}}</span>: {{(man_riesgos | filter: data).length }}</label>
 
 <table class="table table-striped table-condensed table-hover">
     
@@ -115,7 +130,7 @@ Aseguradora:<select multiple ng-options="item as item.name_asegurad for item in 
             </thead>
 
 
-            <tr  ng-repeat="contact in man_riesgos | orderBy:sortingOrder:reverse" class='active' ts-repeat>
+            <tr  ng-repeat="contact in man_riesgos | filter: data" class='active' ts-repeat>
 
                 <td>{{contact.id_riesg__tipo_riesgo}}</td>
                 <td>{{contact.id_model__id_modelo__name_model}}</td>

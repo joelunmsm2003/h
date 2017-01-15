@@ -1,5 +1,8 @@
 function Admin($scope,$http,$filter,$routeParams,$location,$route,$localStorage) {
 
+
+
+
   $scope.model = {}
   $scope.datamodel = {}
 
@@ -10,7 +13,6 @@ function Admin($scope,$http,$filter,$routeParams,$location,$route,$localStorage)
     $scope.model.marca = $scope.marcas[73]
 
     });
-
   $http.get(host+"/listmodelo/").success(function(response) {$scope.modelos = response;
 
     $scope.model.modelo = $scope.modelos[40]
@@ -90,7 +92,10 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
     });
 
-    $http.get(host+"/man_cob/").success(function(response) {$scope.man_cob = response;
+    $http.get(host+"/man_cob/").success(function(response) {
+
+      $scope.man_cob = response;
+      $scope.man_cob_1 = response;
 
       
     });
@@ -105,7 +110,11 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
       
     });
 
-       $http.get(host+"/man_autos/").success(function(response) {$scope.man_autos= response;
+       $http.get(host+"/man_autos/").success(function(response) {
+
+
+        $scope.man_autos= response;
+        $scope.man_autos_1= response;
 
       
     });
@@ -461,6 +470,47 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
     }
 
+    $scope.addprima = function (model) {
+
+      $('#programa').modal('hide')
+      $('.modal-backdrop').remove();
+
+       $http({
+
+        url: host+"/addprima/",
+        data: model,
+        method: 'POST',
+     
+        }).
+        success(function(data) {
+
+        $route.reload();
+
+        })
+
+    }
+
+    $scope.addprima = function (model) {
+
+      $('#programa').modal('hide')
+      $('.modal-backdrop').remove();
+
+       $http({
+
+        url: host+"/addpoliticagps/",
+        data: model,
+        method: 'POST',
+     
+        }).
+        success(function(data) {
+
+        $route.reload();
+
+        })
+
+    }
+
+
     $scope.adddeduccion = function (model) {
 
     	console.log(model)
@@ -802,25 +852,38 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
    
     }
 
+
+
+
     $scope.editar = function (model) {
 
-        $scope.edit = model
-        console.log(model)
 
 
+        $scope.edit =model
+
+        console.log(model,$scope.clases)
+
+   
     
         $scope.edit.uso = $scope.uso[model.id_uso-1]
        
-        $scope.edit.aseguradora = $scope.aseguradoras[model.id_aseg-1]
+        $scope.edit.aseguradora = $filter('filter')($scope.aseguradoras,{'id_asegurad' : model.id_aseg})[0]
+
+
         $scope.edit.modalidad = $scope.modalidad[model.modalidad-1]
         $scope.edit.anio = $scope.anio[model.anio-1]
         $scope.edit.programa = $scope.programas[model.programa-1]
-        $scope.edit.clase = $scope.clases[model.tipo-1]
+
+        $scope.edit.clase = $filter('filter')($scope.clases,{'clase' : model.id_tipo__clase})[0]
+
         $scope.edit.categoria = $scope.categorias[model.categoria-1]
         $scope.edit.deduccion = $scope.deducciones[model.id_deduc-1]
         $scope.edit.cobertura = $scope.coberturas[model.id_cob-1]
         $scope.edit.servicio = $scope.listaservice[model.id_serv-1]
-        $scope.edit.riesgo = $scope.riesgos[model.riesgo-1]
+        //$scope.edit.riesgo = $scope.riesgos[model.riesgo-1]
+
+        $scope.edit.riesgo = $filter('filter')($scope.riesgos,{'tipo_riesgo' : model.riesgo__tipo_riesgo})[0]
+
 
     }
 
@@ -867,8 +930,7 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
         }).
         success(function(data) {
 
-          $http.get(host+"/deduc_cob/").success(function(response) {$scope.deduc_cob = response;
-    });
+          location.reload()
         })
     }
 
@@ -957,10 +1019,7 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
         }).
         success(function(data) {
 
-           $http.get(host+"/man_tasas").success(function(response) {$scope.man_tasas = response;
-
-      
-    });
+           location.reload()
 
         })
 
