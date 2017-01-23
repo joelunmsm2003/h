@@ -20,41 +20,51 @@
 
     	<div class="container">	
 
+
+
     	<h2>Financiamiento</h2><br>
 
-    		<ng-include src="'modales.html'"></ng-include>		
+    		<ng-include src="'modales.html'"></ng-include>
+
+    		<div class="jumbotron">		
 		
-			<form ng-submit="addservice(model)">
+			<form ng-submit="addfinanciamiento(model)">
 
 			<div class='row'>
 
-						<div class="col-md-2">
+			<div class="col-md-3">
 
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#servicio"><i class="fa fa-plus"></i></button>
-				Financiamiento:
-				<select ng-options="item as item.finance for item in listafinance track by item.id_serv" type="text" class="form-control" ng-model="model.servicio" required =""  ></select>
-
-			</div>
-
-            <div class="col-md-2">
-
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aseguradora"><i class="fa fa-plus"></i></button>
-				Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="model.aseguradora" required =""  ></select>
+				<!--<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#servicio"><i class="fa fa-plus"></i></button>-->
+				<label>Financiamiento:</label>
+				<select ng-options="item as item.financiamiento for item in listafinance track by item.financiamiento" type="text" class="form-control" ng-model="model.financiamiento" required =""  ></select>
 
 			</div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
+
+				
+				<label>Aseguradora :</label><select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="model.aseguradora" required =""  ></select>
+
+			</div>
+
+            <div class="col-md-3">
 				Cuota :<input ng-model="model.cuota" type="text" class="form-control" required =""  >
 			</div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
 				Factor :<input ng-model="model.tea" type="text" class="form-control" required =""  >
 			</div>			
-				<br></br>
+			
+
+			</div>
+
+			<br>
 
 			<button type='submit' class='btn btn-primary'>Agregar</button>
 			
 			</form>
+
+			</div>
 
 
       <!--Filtro de Busqueda-->
@@ -96,9 +106,9 @@
             </thead>
 
 
-            <tr  ng-repeat="contact in man_finan | filter:data" class='active' ts-repeat>
+            <tr  ng-repeat="contact in listfinanase | filter:data" class='active' ts-repeat>
 
-				<td>{{contact.id}}-{{contact.id_serv__services| limitTo: 40}}</td>
+				<td>{{contact.id_finan__financiamiento}}</td>
 				<td>{{contact.id_aseg__name_asegurad}}</td>
 				<td>{{contact.cuota}}</td>
 				<td>{{contact.tea}}</td>
@@ -106,8 +116,8 @@
 
           		<td>
                
-          		<a ng-click="editar(contact)" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editserv"><i class="fa fa-edit"></i></a>
-                 <a ng-click="eliminarserv(contact)" class="btn btn-sm btn-primary" ><i class="fa fa-trash"></i></a>
+          		<!--<a ng-click="editar(contact)" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editserv"><i class="fa fa-edit"></i></a>-->
+                 <a ng-click="eliminarfin(contact)" class="btn btn-sm btn-primary" ><i class="fa fa-trash"></i></a>
                 </td>
 
             </tr>

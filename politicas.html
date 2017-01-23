@@ -25,13 +25,13 @@
 
     		<div class='panel'>	
 		
-			<form ng-submit="addpolticagps(model)">
+			<form ng-submit="addpoliticagps(model)">
 
 			<div class='row'>
             <div class="col-md-2">
 
 				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aseguradora"><i class="fa fa-plus"></i></button>
-				Aseguradora:) :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="model.aseguradora" required =""  ></select>
+				Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="model.aseguradora" required =""  ></select>
 
 			</div>
 
@@ -55,13 +55,7 @@
 
 			
 
-				<div class="col-md-2" ng-show='False'>
-
-				<button type="button" class="btn btn-primary btn-sm" ><i class="fa fa-cube"></i></button>
-				Categorias :<select  ng-options="item as item.categoria for item in categorias track by item.id_categ" type="text" class="form-control" ng-model="model.categoria" required =""  ></select>
-
-			</div>
-
+			
 			<div class="col-md-2">
 
 				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aseguradora"><i class="fa fa-cube"></i></button>
@@ -74,21 +68,16 @@
 				<div class="col-md-2">
 
 				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#programa"><i class="fa fa-plus"></i></button>
-				Programa :<select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="model.programa" required =""  ></select>
+				Programa :<select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="model.programa" required =""  ><option></option></select>
 
 			</div>
 
-			            <div class="col-md-2">
 
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#marca"><i class="fa fa-plus"></i></button>
-				Marca :<select  ng-options="item as item.name_marca for item in marcas track by item.id_marca" type="text" class="form-control" ng-model="model.marca" required =""  ></select>
-
-			</div>
 
 			<div class="col-md-2">
 
 				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modelo"><i class="fa fa-plus"></i></button>
-				Modelo :<select  ng-options="item as item.name_model for item in modelos track by item.id_model" type="text" class="form-control" ng-model="model.modelo" required =""  ></select>
+				Marca / Modelo :<select ng-change='sumasegurada(model)' ng-options="item as item.id_marca__name_marca + '-' + item.id_modelo__name_model for item in man_autos track by item.id_modelo__name_model" type="text" class="form-control" ng-model="model.modelo" required =""  ></select>
 
 			</div>
 
@@ -108,15 +97,12 @@
 
 				<button type="button" class="btn btn-primary btn-sm"><i class="fa fa-cube"></i></button>
 				Valor:
-				<input type="text" ng-model="model.value" class="form-control"  required="required">
+		
 
-			</div>
-
-			<div class="col-md-2">
-
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#clase"><i class="fa fa-plus"></i></button>
-				Tipo:
-				<select  multiple ng-options="item as item.clase for item in clases track by item.id_clase" type="text" class="form-control" ng-model="model.clase" required =""  ></select>
+				<select ng-model="model.value" class="form-control"  required="required">}
+				<option value='Si'>Si</option>
+				<option value='No'>No</option>
+				</select>
 
 			</div>
 
@@ -164,18 +150,23 @@
             <tr>
                 
  
+                <th class="id_aseg__name_asegurad">Id <a ng-click="sort_by('id_aseg__name_asegurad',currentPage)"><i class="icon-sort"></i></a></th>
+
                 <th class="id_aseg__name_asegurad">Aseguradora <a ng-click="sort_by('id_aseg__name_asegurad',currentPage)"><i class="icon-sort"></i></a></th>
-                <th class="modalidad__name_modalidad">Modalidad <a ng-click="sort_by('modalidad__name_modalidad',currentPage)"><i class="icon-sort"></i></a></th>
-                
+
+                <th class="modalidad__name_modalidad">Programa <a ng-click="sort_by('modalidad__name_modalidad',currentPage)"><i class="icon-sort"></i></a></th>
+
+                <th class="modalidad__name_modalidad">Marca <a ng-click="sort_by('modalidad__name_modalidad',currentPage)"><i class="icon-sort"></i></a></th>
+
+                <th class="modalidad__name_modalidad">Modelo <a ng-click="sort_by('modalidad__name_modalidad',currentPage)"><i class="icon-sort"></i></a></th>
+
+           
                 <th class="id_uso__uso" >Uso <a ng-click="sort_by('id_uso__uso',currentPage)"><i class="icon-sort"></i></a></th>
-                <th class="tipo__clase" >Tipo <a ng-click="sort_by('tipo__clase',currentPage)"><i class="icon-sort"></i></a></th>
-                <th class="anio__anio_antig" >Año <a ng-click="sort_by('anio__anio_antig',currentPage)"><i class="icon-sort"></i></a></th>
-               
-                <th class="riesgo__tipo_riesgo" >Riesgo <a ng-click="sort_by('riesgo__tipo_riesgo',currentPage)"><i class="icon-sort"></i></a></th>
-                <th class="programa__program" >Programa <a ng-click="sort_by('programa__program',currentPage)"><i class="icon-sort"></i></a></th>
-                <th class="ubicacion" >Ubicacion <a ng-click="sort_by('ubicacion',currentPage)"><i class="icon-sort"></i></a></th>
-                <th class="value" >Valor <a ng-click="sort_by('value',currentPage)"><i class="icon-sort"></i></a></th>
+                <th class="tipo__clase" >Anio <a ng-click="sort_by('tipo__clase',currentPage)"><i class="icon-sort"></i></a></th>
+                <th class="anio__anio_antig" >Value <a ng-click="sort_by('anio__anio_antig',currentPage)"><i class="icon-sort"></i></a></th>
                 <th></th>
+               
+           
                 
             
                             
@@ -184,27 +175,27 @@
             </thead>
 
 
-            <tr  ng-repeat="contact in man_tasas | filter: data" class='active' ts-repeat>
+            <tr  ng-repeat="contact in gps | filter: data" class='active' ts-repeat>
 
-         		
-                <td>{{contact.id}}-{{contact.id_aseg__name_asegurad}}</td>
-                <td>{{contact.modalidad__name_modalidad}}</td>
+
+
+                <td>{{contact.id}}</td>
+                <td>{{contact.id_aseg__name_asegurad}}</td>
                 
-                <td>{{contact.id_uso__uso}}</td>
-                <td>{{contact.tipo__clase}}</td>
-                <td>{{contact.anio__anio_antig}}</td>
-            
-                 <td>{{contact.riesgo__tipo_riesgo}}</td>
-                 <td>{{contact.programa__program}}</td>
-                 <td>{{contact.ubicacion}}</td>
-                 
-                <td>{{contact.value}}</td>
+                <td>{{contact.id_prog__program}}</td>
 
-                <td>
+                <td>{{contact.id_auto__id_marca__name_marca}}</td>
+                <td>{{contact.id_auto__id_modelo__name_model}}</td>
+                <td>{{contact.id_uso__uso}}</td>
+                <td>{{contact.anio_antig__anio_antig}}</td>
+            
+                 <td>{{contact.value}}</td>
+
+                <!--<td>
                
                 <a ng-click="editar(contact)" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edittasa"><i class="fa fa-edit"></i></a>
                  <a ng-click="eliminartasa(contact)" class="btn btn-sm btn-primary" ><i class="fa fa-trash"></i></a>
-                </td>
+                </td>-->
 
             </tr>
         </tbody>

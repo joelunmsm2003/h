@@ -19,6 +19,15 @@ function Admin($scope,$http,$filter,$routeParams,$location,$route,$localStorage)
 
     });
 
+    $http.get(host+"/listprimas/").success(function(response) {$scope.primas = response;
+    });
+
+
+
+  $http.get(host+"/listfinanase/").success(function(response) {$scope.listfinanase = response;
+    });
+
+
   $http.get(host+"/listparametros/").success(function(response) {$scope.listparametros = response;
 
     //model.demision
@@ -47,6 +56,13 @@ function Admin($scope,$http,$filter,$routeParams,$location,$route,$localStorage)
      $scope.model.categoria = $scope.categorias[0]
 
     });
+
+    $http.get(host+"/listafinance/").success(function(response) {$scope.listafinance = response;
+
+      console.log('jsjsjs',response)
+
+    });
+
 
   $http.get(host+"/programas/").success(function(response) {$scope.programas = response;
 
@@ -83,6 +99,13 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
     $http.get(host+"/modalidad/").success(function(response) {$scope.modalidad = response;
 
       $scope.model.modalidad = $scope.modalidad[2]
+    });
+
+
+
+    $http.get(host+"/listgps/").success(function(response) {$scope.gps = response;
+
+  
     });
 
       $http.get(host+"/clase/").success(function(response) {$scope.clases = response;
@@ -334,6 +357,26 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
         })
     }
 
+       $scope.eliminarfin = function (model) {
+
+      console.log(model)
+
+       $http({
+
+        url: host+"/eliminarfin/",
+        data: model,
+        method: 'POST',
+     
+        }).
+        success(function(data) {
+
+          $route.reload();
+
+        })
+    }
+
+    
+
     $scope.eliminardedu = function (model) {
 
       console.log(model)
@@ -490,10 +533,12 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
     }
 
-    $scope.addprima = function (model) {
+    $scope.addpoliticagps = function (model) {
 
       $('#programa').modal('hide')
       $('.modal-backdrop').remove();
+
+      console.log('GPS....',model)
 
        $http({
 
@@ -758,6 +803,34 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
     }
 
+    $scope.addfinanciamiento =function(data){
+
+
+      console.log('financiamiento....')
+
+
+               $('#addmodalidad').modal('hide')
+         $('.modal-backdrop').remove();
+
+      $http({
+
+        url: host+"/addfinanciamiento/",
+        data: data,
+        method: 'POST',
+     
+        }).
+        success(function(data) {
+
+          $route.reload();
+
+        })
+
+
+
+
+
+    }
+
 
 
          $scope.addriesgo = function (model) {
@@ -953,6 +1026,28 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
           $route.reload();
 
         })
+
+    }
+
+    $scope.sumasegurada = function(data){
+
+
+      console.log('dgdgdgd',data.modelo.valor)
+
+      if(data.modelo.valor>50000){
+
+        data.value = 'Si'
+
+      }
+      else{
+
+        data.value='No'
+      }
+
+      
+      
+
+
 
     }
 

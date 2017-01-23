@@ -13,7 +13,6 @@
 
 		<ng-include src="'menu.html'"></ng-include>
    
-
   
 
     	<div class="container">
@@ -22,87 +21,53 @@
 
     		<ng-include src="'modales.html'"></ng-include>
 
-    		<div class='panel'>	
-		
-			<form ng-submit="addprima(model)">
+    	<div class="jumbotron">
+         
+
+            <form ng-submit="addprima(model)">
 
 			<div class='row'>
-            <div class="col-md-2">
 
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aseguradora"><i class="fa fa-plus"></i></button>
-				Aseguradora:) :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="model.aseguradora" required =""  ></select>
+                        <div class="col-md-3">
 
-			</div>
+                        <label>Aseguradora </label><select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="model.aseguradora" required =""  ></select>
 
-			<div class="col-md-2">
-
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalidad"><i class="fa fa-plus"></i></button>
-				Modalidad :<select  ng-options="item as item.name_modalidad for item in modalidad track by item.id_modalidad" type="text" class="form-control" ng-model="model.modalidad" required =""  ></select>
-
-			</div>
+                        </div>
 
 
+                        <div class="col-md-3">
+
+                        <label>Programa </label><select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="model.programa" required =""  ><option></option></select>
+
+                        </div>
+
+                        <div class="col-md-3">
+
+                      
+                            <label>Riesgo </label><select   ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo" type="text" class="form-control" ng-model="model.riesgo" required =""  ></select>
+
+                        </div>
 
 
-			<div class="col-md-2">
+                        <div class="col-md-3">
 
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uso"><i class="fa fa-plus"></i></button>
-				Uso:
-				<select ng-options="item as item.uso for item in uso track by item.id_uso" type="text" class="form-control" ng-model="model.uso" required ="" ></select>
-
-			</div>
-
-			
-
-				<div class="col-md-2" ng-show='False'>
-
-				<button type="button" class="btn btn-primary btn-sm" ><i class="fa fa-cube"></i></button>
-				Categorias :<select  ng-options="item as item.categoria for item in categorias track by item.id_categ" type="text" class="form-control" ng-model="model.categoria" required =""  ></select>
-
-			</div>
+        
+                        <label>Valor Prima Minima</label>
+                        <input  class='form-control' ng-model="model.valor" class="form-control"></input>
 
 
-			<div class="col-md-2">
-
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aseguradora"><i class="fa fa-plus"></i></button>
-				Riesgo :<select  ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo" type="text" class="form-control" ng-model="model.riesgo" required =""  ></select>
-
-			</div>
-
-				<div class="col-md-2">
-
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#programa"><i class="fa fa-plus"></i></button>
-				Programa :<select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="model.programa" required =""  ></select>
-
-			</div>
-
-			<div class="col-md-2">
-
-				<button type="button" class="btn btn-primary btn-sm"><i class="fa fa-cube"></i></button>
-				Ubicacion:
-				<select ng-options="item as item.label for item in items track by item.id" ng-model="model.ubicacion" class="form-control"></select>
+                        </div>
 
 
-			</div>
 
-			
-			<div class="col-md-2">
+            </div>
 
-				<button type="button" class="btn btn-primary btn-sm"><i class="fa fa-cube"></i></button>
-				Valor:
-				<input type="text" ng-model="model.value" class="form-control"  required="required">
-
-			</div>
-
-			
-
-				
-
+                <br>
 			<button type='submit' class='btn btn-primary'>Agregar</button>
 			
 			</form>
 
-			</div>
+            </div>
 
         <!--Filtro de Busqueda-->
 
@@ -134,21 +99,17 @@
             <thead>
 
             <tr>
+
+            	<th class="id">Id <a ng-click="sort_by('id',currentPage)"><i class="icon-sort"></i></a></th>
+
+                <th class="aseguradora__name_asegurad">Aseguradora <a ng-click="sort_by('aseguradora__name_asegurad',currentPage)"><i class="icon-sort"></i></a></th>
+
+
+                <th class="riesgo__tipo_riesgo">Riesgo <a ng-click="sort_by('riesgo__tipo_riesgo',currentPage)"><i class="icon-sort"></i></a></th>
                 
- 
-                <th class="id_aseg__name_asegurad">Aseguradora <a ng-click="sort_by('id_aseg__name_asegurad',currentPage)"><i class="icon-sort"></i></a></th>
-                <th class="modalidad__name_modalidad">Modalidad <a ng-click="sort_by('modalidad__name_modalidad',currentPage)"><i class="icon-sort"></i></a></th>
-                
-                <th class="id_uso__uso" >Uso <a ng-click="sort_by('id_uso__uso',currentPage)"><i class="icon-sort"></i></a></th>
-                <th class="tipo__clase" >Tipo <a ng-click="sort_by('tipo__clase',currentPage)"><i class="icon-sort"></i></a></th>
-                <th class="anio__anio_antig" >Año <a ng-click="sort_by('anio__anio_antig',currentPage)"><i class="icon-sort"></i></a></th>
-               
-                <th class="riesgo__tipo_riesgo" >Riesgo <a ng-click="sort_by('riesgo__tipo_riesgo',currentPage)"><i class="icon-sort"></i></a></th>
                 <th class="programa__program" >Programa <a ng-click="sort_by('programa__program',currentPage)"><i class="icon-sort"></i></a></th>
-                <th class="ubicacion" >Ubicacion <a ng-click="sort_by('ubicacion',currentPage)"><i class="icon-sort"></i></a></th>
-                <th class="value" >Valor <a ng-click="sort_by('value',currentPage)"><i class="icon-sort"></i></a></th>
-                <th></th>
-                
+                <th class="primaminima" >Valor Prima Minima <a ng-click="sort_by('primaminima',currentPage)"><i class="icon-sort"></i></a></th>
+
             
                             
             </tr>
@@ -156,27 +117,23 @@
             </thead>
 
 
-            <tr  ng-repeat="contact in man_tasas  | filter: data" class='active' ts-repeat>
+            <tr  ng-repeat="contact in primas  | filter: data" class='active' ts-repeat>
 
          		
-                <td>{{contact.id}}-{{contact.id_aseg__name_asegurad}}</td>
-                <td>{{contact.modalidad__name_modalidad}}</td>
+                <td>{{contact.id}}</td>
+                <td>{{contact.aseguradora__name_asegurad}}</td>
                 
-                <td>{{contact.id_uso__uso}}</td>
-                <td>{{contact.tipo__clase}}</td>
-                <td>{{contact.anio__anio_antig}}</td>
+                <td>{{contact.riesgo__tipo_riesgo}}</td>
+                <td>{{contact.programa__program}}</td>
+                <td>{{contact.primaminima}}</td>
             
-                 <td>{{contact.riesgo__tipo_riesgo}}</td>
-                 <td>{{contact.programa__program}}</td>
-                 <td>{{contact.ubicacion}}</td>
-                 
-                <td>{{contact.value}}</td>
+              
 
-                <td>
+                <!--<td>
                
                 <a ng-click="editar(contact)" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edittasa"><i class="fa fa-edit"></i></a>
                  <a ng-click="eliminartasa(contact)" class="btn btn-sm btn-primary" ><i class="fa fa-trash"></i></a>
-                </td>
+                </td>-->
 
             </tr>
         </tbody>
