@@ -6,13 +6,19 @@ function Admin($scope,$http,$filter,$routeParams,$location,$route,$localStorage)
   $scope.model = {}
   $scope.datamodel = {}
 
+  $scope.check= true
+
   $scope.est = 'Mas Detalle'
 
 	$http.get(host+"/marca/").success(function(response) {$scope.marcas = response;
 
     $scope.model.marca = $scope.marcas[73]
 
+    console.log('marcas',$scope.marcas)
+
     });
+
+
   $http.get(host+"/listmodelo/").success(function(response) {$scope.modelos = response;
 
     $scope.model.modelo = $scope.modelos[40]
@@ -41,6 +47,36 @@ function Admin($scope,$http,$filter,$routeParams,$location,$route,$localStorage)
 
     });
 
+$scope.marcacheck = function(data){
+
+  console.log(data.checkmarca)
+
+  if(data.checkmarca){
+
+    for(d in data) {
+
+    data[d]['checkmodel'] = false
+
+    }
+
+  }
+
+  else{
+
+    for(d in data) {
+
+    data[d]['checkmodel'] = true
+
+    }
+
+
+  }
+
+
+
+
+}
+
 
 
   $http.get(host+"/aseguradoras/").success(function(response) {$scope.aseguradoras = response;
@@ -56,6 +92,8 @@ function Admin($scope,$http,$filter,$routeParams,$location,$route,$localStorage)
      $scope.model.categoria = $scope.categorias[0]
 
     });
+
+
 
     $http.get(host+"/listafinance/").success(function(response) {$scope.listafinance = response;
 
@@ -206,6 +244,30 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
 
   
+    }
+
+    $scope.modelitos= []
+
+    $scope.traemodelo = function(data){
+
+
+      console.log(data)
+
+
+       $http.get(host+"/modelo/"+data.id_marca+'/').success(function(response) {$scope.modeloset = response;
+
+
+
+      $scope.modelitos.push($scope.modeloset)
+
+
+      console.log('Modelitos',$scope.modelitos)
+
+      
+      });
+
+
+
     }
 
 

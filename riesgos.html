@@ -33,10 +33,13 @@
 	</div>
 -->
 
-	<div class="col-md-4">
+	<div class="col-md-3">
 	<button type="button" class="btn btn-primary btn-sm" ><i class="fa fa-cube"></i></button>
 	Riesgo :<select multiple ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo"  type="text" class="form-control" ng-model="datamodel.riesgo"   required =""  ></select>
-	</div>
+	
+
+
+    </div>
 
 <!--
 	<div class="col-md-3">
@@ -46,6 +49,64 @@
 	{{detalle}}
 	</div>
 -->
+    <style type="text/css">
+        
+.fixed-panel{
+    height:100px;
+    overflow-y:scroll;
+}
+
+    </style>
+
+    <div class="col-md-3">
+
+    Marca:
+
+
+        <div class="panel panel-success">
+                <input type="" class='form-control' name="" ng-model='marc'> 
+                <div class="panel-body fixed-panel" >   
+                    <div class="checkbox" ng-repeat='contact in marcas | filter: marc'>
+                    <label><input ng-click='traemodelo(contact)' type="checkbox" value="" >{{contact.name_marca}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    <div class="col-md-3">
+
+    Modelo:
+
+
+        <div class="panel panel-success">
+                <input type="" class='form-control' name="" ng-model='modelo'> 
+                <div class="panel-body fixed-panel" >   
+                    <div class="checkbox" ng-repeat='contact in modelitos | filter: modelo'>
+
+                        <label><i class="fa fa-car" aria-hidden="true"></i> {{contact[0].id_marca__name_marca}} 
+
+                            <input type="checkbox" value="" ng-model='contact.checkmarca' ng-click='marcacheck(contact)'></label>
+
+                       <div class="checkbox" ng-repeat='item in contact'>
+                        
+                        <label><input type="checkbox" value="" ng-model='item.checkmodel'>{{item.model}}</label>
+
+                       </div> 
+                    
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+
+
+
+
 
 	<div class="col-md-3">
 	<a href='#autos' class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
@@ -66,7 +127,10 @@
 Aseguradora:<select multiple ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad"  type="text" class="form-control" ng-model="datamodel.aseguradora"  required =""  ></select>
 </div>
 
-			
+		
+
+
+        </div>	
 
 		
 
@@ -137,17 +201,7 @@ Aseguradora:<select multiple ng-options="item as item.name_asegurad for item in 
                 <td>{{contact.id_model__id_tipo__clase}}</td>
                 <td>{{contact.id_model__id_marca__name_marca}}</td>
                 <td>{{contact.aseguradora__name_asegurad}}</td>
-                
-                
-
-
-
-
-                
-        
-
                 <td>
-               
                  <a ng-click="editar(contact)" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editriesg"><i class="fa fa-edit"></i></a>
                  <a ng-click="eliminarries(contact)" class="btn btn-sm btn-primary" ><i class="fa fa-trash"></i></a>
                 </td>
