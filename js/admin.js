@@ -254,16 +254,51 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
       console.log(data)
 
 
+
        $http.get(host+"/modelo/"+data.id_marca+'/').success(function(response) {$scope.modeloset = response;
 
 
+      console.log($scope.modeloset[0].id_marca__name_marca)
+
+
+      if (data.master == true){
+
+        $scope.modeloset.checkmarcaprincipal = true
+        $scope.modeloset.marca = $scope.modeloset[0].id_marca__name_marca
+      
+      }
+
+      else{
+
+        $scope.modeloset.checkmarcaprincipal = false 
+        $scope.modeloset.marca = $scope.modeloset[0].id_marca__name_marca
+     
+      }
+
+
+
+      con = $filter('filter')($scope.modelitos,{'marca' : $scope.modeloset[0].id_marca__name_marca}).length
+
+      if(con==0){
 
       $scope.modelitos.push($scope.modeloset)
 
+      }
+      else{
+
+        if(data.master == false){
+
+          $filter('filter')($scope.modelitos,{'marca' : $scope.modeloset[0].id_marca__name_marca})[0].checkmarcaprincipal = false
+
+        }
+
+      }
+
+
+      $scope.modelitos = $filter('filter')($scope.modelitos,{'checkmarcaprincipal' : true})
 
       console.log('Modelitos',$scope.modelitos)
 
-      
       });
 
 

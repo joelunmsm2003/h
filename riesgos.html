@@ -68,7 +68,7 @@
                 <input type="" class='form-control' name="" ng-model='marc'> 
                 <div class="fixed-panel" >   
                     <div class="checkbox" ng-repeat='contact in marcas | filter: marc'>
-                    <label><input ng-click='traemodelo(contact)' type="checkbox" value="" >{{contact.name_marca}}</label>
+                    <label><input ng-click='traemodelo(contact)' ng-model='contact.master' type="checkbox" value="" >{{contact.name_marca}}</label>
                     </div>
                 </div>
             </div>
