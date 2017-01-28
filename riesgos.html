@@ -16,44 +16,45 @@
        
 
 
-    	<div class="container">	
+    <div class="container">	
 
-<h2>Riesgos</h2>
-       <br>
-  
-    		<ng-include src="'modales.html'"></ng-include>		
+        <h2>Riesgos</h2>
+        <br>
 
-			<form ng-submit="addriesgoclase(datamodel)">
+    <ng-include src="'modales.html'"></ng-include>	
 
-			<div class='row'>
-<!--
-	<div class="col-md-2">
-	<button type="button" class="btn btn-primary btn-sm" ><i class="fa fa-cube"></i></button>
-	Riesgo :<select  ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo" type="text" class="form-control" ng-model="datamodel.riesgo" required =""  ></select>
-	</div>
--->
+    <div class="jumbotron">     
+        	
+
+    <form ng-submit="addriesgoclase(datamodel)">
+
+
+    <div class='row'>
+
+
+    <div class="col-md-3">
+   
+    <label>Aseguradora:</label><select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad"  type="text" class="form-control" ng-model="datamodel.aseguradora"  required =""  ></select>
+    </div>
+
+   
 
 	<div class="col-md-3">
 	<button type="button" class="btn btn-primary btn-sm" ><i class="fa fa-cube"></i></button>
-	Riesgo :<select multiple ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo"  type="text" class="form-control" ng-model="datamodel.riesgo"   required =""  ></select>
+	Riesgo :<select  ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo"  type="text" class="form-control" ng-model="datamodel.riesgo"   required =""  ></select>
 	
 
 
     </div>
 
-<!--
-	<div class="col-md-3">
-	<a href='#autos' class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-	Modelo | Marca:
-	<select ng-options="item as item.id_modelo__name_model for item in man_autos track by item.id" type="text" class="form-control" ng-model="datamodel.modelo" required ="" ng-change='marca(datamodel.modelo)' ></select>
-	{{detalle}}
-	</div>
--->
+
     <style type="text/css">
         
 .fixed-panel{
     height:100px;
     overflow-y:scroll;
+    padding: 2px;
+    padding-left:18px;
 }
 
     </style>
@@ -65,7 +66,7 @@
 
         <div class="panel panel-success">
                 <input type="" class='form-control' name="" ng-model='marc'> 
-                <div class="panel-body fixed-panel" >   
+                <div class="fixed-panel" >   
                     <div class="checkbox" ng-repeat='contact in marcas | filter: marc'>
                     <label><input ng-click='traemodelo(contact)' type="checkbox" value="" >{{contact.name_marca}}</label>
                     </div>
@@ -84,7 +85,7 @@
 
         <div class="panel panel-success">
                 <input type="" class='form-control' name="" ng-model='modelo'> 
-                <div class="panel-body fixed-panel" >   
+                <div class="fixed-panel" >   
                     <div class="checkbox" ng-repeat='contact in modelitos | filter: modelo'>
 
                         <label><i class="fa fa-car" aria-hidden="true"></i> {{contact[0].id_marca__name_marca}} 
@@ -106,28 +107,7 @@
 
 
 
-
-
-	<div class="col-md-3">
-	<a href='#autos' class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
-	Modelo | Marca:
-<select multiple ng-options="item as item.id_modelo__name_model for item in man_autos track by item.id"  type="text" class="form-control" ng-model="datamodel.modelo"   required =""  ></select>
-	</div>
-
-<!--
-		<div class="col-md-4">
-		<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aseguradora"><i class="fa fa-plus"></i></button>
-                Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="datamodel.aseguradora" required =""  ></select>
-	        </div>
--->
-
-
-<div class="col-md-4">
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aseguradora"><i class="fa fa-plus"></i></button>
-Aseguradora:<select multiple ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad"  type="text" class="form-control" ng-model="datamodel.aseguradora"  required =""  ></select>
-</div>
-
-		
+	
 
 
         </div>	
@@ -137,6 +117,8 @@ Aseguradora:<select multiple ng-options="item as item.name_asegurad for item in 
 			<button type='submit' class='btn btn-primary'>Agregar</button>
 			
 			</form>
+
+            </div>
 
 <div>
 <br>
