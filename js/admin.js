@@ -258,7 +258,14 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
        $http.get(host+"/modelo/"+data.id_marca+'/').success(function(response) {$scope.modeloset = response;
 
 
-      console.log($scope.modeloset[0].id_marca__name_marca)
+      for(x in $scope.modeloset){
+
+          $scope.modeloset[x]['checkmodel']= false
+      
+
+      }
+
+      console.log('uueue',$scope.modeloset)
 
 
       if (data.master == true){
@@ -377,12 +384,19 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
     $scope.addriesgoclase = function (datax) {
 
-      console.log(datax)
+
+      var todo={
+
+        datax:datax,
+        modelos:$scope.modelitos
+      }
+
+      console.log(todo)
 
        $http({
 
         url: host+"/addriesgoclase/",
-        data: datax,
+        data: todo,
         method: 'POST',
      
         }).
