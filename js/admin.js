@@ -1,6 +1,24 @@
 function Admin($scope,$http,$filter,$routeParams,$location,$route,$localStorage) {
 
 
+$scope.primerfiltro =true
+$scope.segundofiltro=false
+
+$scope.primerf=function(){
+
+$scope.primerfiltro =true
+$scope.segundofiltro=false
+  
+
+}
+
+
+$scope.segundof=function(){
+
+$scope.primerfiltro =false
+$scope.segundofiltro=true
+  
+}
 
 
   $scope.model = {}
@@ -30,7 +48,7 @@ function Admin($scope,$http,$filter,$routeParams,$location,$route,$localStorage)
 
 
 
-  $http.get(host+"/listfinanase/").success(function(response) {$scope.listfinanase = response;
+  $http.get(host+"/listfinanase/").success(function(response) {$scope.listafinance = response;
     });
 
 
@@ -95,7 +113,7 @@ $scope.marcacheck = function(data){
 
 
 
-    $http.get(host+"/listafinance/").success(function(response) {$scope.listafinance = response;
+    $http.get(host+"/listafinanciamiento/").success(function(response) {$scope.listafinanciamiento = response;
 
       console.log('jsjsjs',response)
 
@@ -384,6 +402,8 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
     $scope.addriesgoclase = function (datax) {
 
+      console.log('RIesgo,,,,')
+
 
       var todo={
 
@@ -666,6 +686,41 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
     }
 
+      $scope.addpoliticagps2 = function (model) {
+
+      $('#programa').modal('hide')
+      $('.modal-backdrop').remove();
+
+      console.log('GPS....2 ..model',model)
+
+
+      console.log('GPS....2 ..contact',$scope.modelitos)
+
+      var todo ={
+
+        modelitos:$scope.modelitos,
+        gps:model
+      }
+
+
+
+
+       $http({
+
+        url: host+"/addpoliticagps2/",
+        data: todo,
+        method: 'POST',
+     
+        }).
+        success(function(data) {
+
+        $route.reload();
+
+        })
+
+    }
+
+
 
     $scope.adddeduccion = function (model) {
 
@@ -925,7 +980,7 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
       $http({
 
-        url: host+"/addfinanciamiento/",
+        url: host+"/addfinanz/",
         data: data,
         method: 'POST',
      
