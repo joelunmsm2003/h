@@ -159,7 +159,7 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
 
 
-    $http.get(host+"/listgps/").success(function(response) {$scope.gps = response;
+    $http.get(host+"/listagps/").success(function(response) {$scope.gps = response;
 
   
     });
