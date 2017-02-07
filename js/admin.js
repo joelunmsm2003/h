@@ -33,6 +33,8 @@ function Admin($scope,$http,$filter,$routeParams,$location,$route,$localStorage)
   $http.get(host+"/listfinanase/").success(function(response) {$scope.listfinanase = response;
     });
 
+  $http.get(host+"/listafinance/").success(function(response) {$scope.listafinance = response;
+    });
 
   $http.get(host+"/listparametros/").success(function(response) {$scope.listparametros = response;
 

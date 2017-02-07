@@ -23,9 +23,11 @@
 
     		<ng-include src="'modales.html'"></ng-include>	
 
-    		<div class='panel'>	
-		
-			<form ng-submit="addpoliticagps(model)">
+
+    	<div class="jumbotron">
+         
+
+            <form ng-submit="addpoliticagps(model)">
 
 			<div class='row'>
             <div class="col-md-2">
@@ -42,9 +44,6 @@
 
 			</div>
 
-
-
-
 			<div class="col-md-2">
 
 				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uso"><i class="fa fa-plus"></i></button>
@@ -52,27 +51,21 @@
 				<select ng-options="item as item.uso for item in uso track by item.id_uso" type="text" class="form-control" ng-model="model.uso" required ="" ></select>
 
 			</div>
-
-			
-
 			
 			<div class="col-md-2">
 
 				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aseguradora"><i class="fa fa-cube"></i></button>
-				Anio :<select  ng-options="item as item.anio_antig for item in anio track by item.id_anio" type="text" class="form-control" ng-model="model.anio" required =""  ></select>
+				Año :<select  ng-options="item as item.anio_antig for item in anio track by item.id_anio" type="text" class="form-control" ng-model="model.anio" required =""  ></select>
 
 			</div>
 
 
-
-				<div class="col-md-2">
+			<div class="col-md-2">
 
 				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#programa"><i class="fa fa-plus"></i></button>
 				Programa :<select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="model.programa" required =""  ><option></option></select>
 
 			</div>
-
-
 
 			<div class="col-md-2">
 
@@ -81,24 +74,19 @@
 
 			</div>
 
-
-
 			<div class="col-md-2">
 
 				<button type="button" class="btn btn-primary btn-sm"><i class="fa fa-cube"></i></button>
 				Ubicacion:
 				<select ng-options="item as item.label for item in items track by item.id" ng-model="model.ubicacion" class="form-control"></select>
 
-
 			</div>
 
-			
+		
 			<div class="col-md-2">
 
 				<button type="button" class="btn btn-primary btn-sm"><i class="fa fa-cube"></i></button>
 				Valor:
-		
-
 				<select ng-model="model.value" class="form-control"  required="required">}
 				<option value='Si'>Si</option>
 				<option value='No'>No</option>
@@ -106,19 +94,62 @@
 
 			</div>
 
-			
 
-			
 
-			<br></br><br></br>
 
-								
+            </div>
 
+                <br>
 			<button type='submit' class='btn btn-primary'>Agregar</button>
 			
 			</form>
 
-			</div>
+            </div>
+
+<!--lsklamsd-->
+
+   	<div class="jumbotron">
+         
+
+            <form ng-submit="addpoliticasuma(model)">
+
+			<div class='row'>
+
+                        <div class="col-md-4">
+
+                        <label>Aseguradora </label><select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="model.aseguradora" required =""  ></select>
+
+                        </div>
+
+
+                        <div class="col-md-4">
+
+                        <label>Programa </label><select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="model.programa" required =""  ><option></option></select>
+
+                        </div>
+
+
+                        <div class="col-md-4">
+
+        
+                        <label>Suma Asegurada Mínima</label>
+                        <input  class='form-control' ng-model="model.suma" class="form-control"></input>
+
+
+                        </div>
+
+
+
+            </div>
+
+                <br>
+			<button type='submit' class='btn btn-primary'>Agregar</button>
+			
+			</form>
+
+            </div>
+			<br></br><br></br>
+
 
         <!--Filtro de Busqueda-->
 
