@@ -63,7 +63,7 @@
 
 												<div class="col-md-3">
 
-													<label>Anio :</label><select  ng-options="item as item.anio_antig for item in anio track by item.id_anio" type="text" class="form-control" ng-model="model.anio" required =""  ></select>
+													<label>Anio :</label><select  multiple ng-options="item as item.anio_antig for item in anio track by item.id_anio" type="text" class="form-control" ng-model="model.anio" required =""  ><option></option></select>
 
 												</div>
 
@@ -113,13 +113,7 @@
 														</div>
 												</div>
 
-												<div class="col-md-3">
-
-														<label>Ubicacion:</label>
-														<select  ng-options="item as item.label for item in items track by item.id" ng-model="model.ubicacion" class="form-control"></select>
-
-												</div>
-
+											
 												<div class="col-md-3">
 
 														<label>Valor:</label>
@@ -170,11 +164,7 @@
 
 										
 
-										<div class="col-md-3">
-
-												<label>Valor :</label><input class='form-control' ng-model='model.valor'></input>
-
-										</div>
+										
 
 
 										<div class="col-md-3">
@@ -260,7 +250,7 @@
 
 				<td>{{contact.id_uso__uso}}</td>
 
-				<td>{{contact.anio_antig__anio_antig}}</td>
+				<td>{{contact.anio_antig}}</td>
 				
 				<td>{{contact.value}}</td>
 
