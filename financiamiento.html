@@ -35,7 +35,9 @@
 
 				<!--<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#servicio"><i class="fa fa-plus"></i></button>-->
 				<label>Financiamiento:</label>
+
 				<select ng-options="item as item.financiamiento for item in listafinanciamiento track by item.financiamiento" type="text" class="form-control" ng-model="model.financiamiento" required =""  ></select>
+
 
 			</div>
 
@@ -94,10 +96,10 @@
 
             <tr>
                 
-                <th class="id_serv__services">Financiamiento <a ng-click="sort_by('valor',currentPage)"><i class="icon-sort"></i></a></th>
-                <th class="id_aseg__name_asegurad">Aseguradora <a ng-click="sort_by('valor',currentPage)"><i class="icon-sort"></i></a></th>
-           		<th class="cuota">Cuota<a ng-click="sort_by('valor',currentPage)"><i class="icon-sort"></i></a></th>
-           		<th class="tea">Factor<a ng-click="sort_by('valor',currentPage)"><i class="icon-sort"></i></a></th>
+                <th class="id_finan__financiamiento">Financiamiento <a ng-click="sort_by('id_finan__financiamiento',currentPage)"><i class="icon-sort"></i></a></th>
+                <th class="id_aseg__name_asegurad">Aseguradora <a ng-click="sort_by('id_aseg__name_asegurad',currentPage)"><i class="icon-sort"></i></a></th>
+           		<th class="cuota">Cuota<a ng-click="sort_by('cuota',currentPage)"><i class="icon-sort"></i></a></th>
+           		<th class="tea">Factor<a ng-click="sort_by('tea',currentPage)"><i class="icon-sort"></i></a></th>
                 <th></th>
                             
             </tr>

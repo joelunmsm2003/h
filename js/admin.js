@@ -53,6 +53,8 @@ $scope.segundofiltro=true
     console.log('finanzas....',$scope.listafinance)
     });
 
+  $http.get(host+"/listafinance/").success(function(response) {$scope.listafinance = response;
+    });
 
   $http.get(host+"/listparametros/").success(function(response) {$scope.listparametros = response;
 

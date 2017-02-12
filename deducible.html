@@ -130,20 +130,12 @@ Programa:<select  multiple ng-options="item as item.program for item in programa
 
 </div>
 
-<br></br>
-<div class="container">
-<h4>Descargar CSV </h4>
-<fieldset class="field_container align_right">
-  <button type="button" class="btn btn-info btn-lg" ><a href="http://cotizador.hermes.pe:800/expdeduc.php" class="export">Exportar</a></button>
-</fieldset>
+<div class='section'>
+ <a href="http://cotizador.hermes.pe:800/expdeduc.php"><button type="button" class="btn btn-info ">Exportar</button></a>
+  <button type="button" class="btn btn-info " data-toggle="modal" data-target="#myModal">Agregar Masivos</button>
 </div>
 
-
-
 <div class="container">
-<h4>Masivos </h4>
-
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Agregar Masivos</button>
 
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -170,8 +162,6 @@ Programa:<select  multiple ng-options="item as item.program for item in programa
   </div>
 
 </div>
-
-
        
         <!--Filtro de Busqueda-->
 

@@ -31,9 +31,11 @@
 
     		<ng-include src="'modales.html'"></ng-include>	
 
+
     		<div class="jumbotron" ng-show='primerfiltro'>	
 		
 			<form ng-submit="addpoliticagps(model)">
+
 
 			<div class='row'>
             <div class="col-md-3">
@@ -51,7 +53,6 @@
 
 
 
-
 			<div class="col-md-3">
 
 			
@@ -59,16 +60,13 @@
 				<select multiple ng-options="item as item.uso for item in uso track by item.id_uso" type="text" class="form-control" ng-model="model.uso" required ="" ></select>
 
 			</div>
-
-			
-
 			
 			<div class="col-md-3">
+
 
 				<label>Anio :</label><select  ng-options="item as item.anio_antig for item in anio track by item.id_anio" type="text" class="form-control" ng-model="model.anio" required =""  ></select>
 
 			</div>
-
 
 
 
@@ -82,8 +80,7 @@
 
 
 			<div class="col-md-3">
-
-				
+			
 				<label>Marca / Modelo :</label><select multiple ng-change='sumasegurada(model)' ng-options="item as item.id_marca__name_marca + '-' + item.id_modelo__name_model for item in man_autos track by item.id_modelo__name_model" type="text" class="form-control" ng-model="model.modelo" required =""  ></select>
 
 			</div>
@@ -96,10 +93,9 @@
 				<label>Ubicacion:</label>
 				<select  ng-options="item as item.label for item in items track by item.id" ng-model="model.ubicacion" class="form-control"></select>
 
-
 			</div>
 
-			
+
 			<div class="col-md-3">
 
 				<label>Valor:</label>
@@ -112,21 +108,19 @@
 
 			</div>
 
-			
 
-			
 
-			</div>
 
-			<br>
+            </div>
 
-								
-
+                <br>
 			<button type='submit' class='btn btn-primary'>Agregar</button>
 			
 			</form>
 
-			</div>
+
+            </div>
+
 
 
 
@@ -226,13 +220,28 @@
 
 		
 
-								
 
+                        <div class="col-md-4">
+
+        
+                        <label>Suma Asegurada Mínima</label>
+                        <input  class='form-control' ng-model="model.suma" class="form-control"></input>
+
+
+                        </div>
+
+
+
+            </div>
+
+                <br>
 			<button type='submit' class='btn btn-primary'>Agregar</button>
 			
 			</form>
 
-			</div>
+            </div>
+			<br></br><br></br>
+
 
         <!--Filtro de Busqueda-->
 
