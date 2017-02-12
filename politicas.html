@@ -14,79 +14,93 @@
 		<ng-include src="'menu.html'"></ng-include>
         
 
-  
+
 
     	<div class="container">
 
     		<h2>Politicas GPS</h2>
     		<br>	
 
+    				<div class="btn-group">
+		<button type="button" class="btn btn-default" ng-click='primerf()'>Primer Filtro</button>
+		<button type="button" class="btn btn-default" ng-click='segundof()'>Segundo Filtro</button>
+
+		</div>
+
+		<br></br>
+
     		<ng-include src="'modales.html'"></ng-include>	
 
 
-    	<div class="jumbotron">
-         
+    		<div class="jumbotron" ng-show='primerfiltro'>	
+		
+			<form ng-submit="addpoliticagps(model)">
 
-            <form ng-submit="addpoliticagps(model)">
 
 			<div class='row'>
-            <div class="col-md-2">
+            <div class="col-md-3">
 
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aseguradora"><i class="fa fa-plus"></i></button>
-				Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="model.aseguradora" required =""  ></select>
-
-			</div>
-
-			<div class="col-md-2">
-
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalidad"><i class="fa fa-plus"></i></button>
-				Modalidad :<select  ng-options="item as item.name_modalidad for item in modalidad track by item.id_modalidad" type="text" class="form-control" ng-model="model.modalidad" required =""  ></select>
+	
+				<label>Aseguradora :</label><select multiple  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="model.aseguradora" required =""  ></select>
 
 			</div>
 
-			<div class="col-md-2">
+			<div class="col-md-3">
 
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uso"><i class="fa fa-plus"></i></button>
-				Uso:
-				<select ng-options="item as item.uso for item in uso track by item.id_uso" type="text" class="form-control" ng-model="model.uso" required ="" ></select>
+				<label>Modalidad :</label><select multiple ng-options="item as item.name_modalidad for item in modalidad track by item.id_modalidad" type="text" class="form-control" ng-model="model.modalidad" required =""  ></select>
+
+			</div>
+
+
+
+			<div class="col-md-3">
+
+			
+				<label>Uso:</label>
+				<select multiple ng-options="item as item.uso for item in uso track by item.id_uso" type="text" class="form-control" ng-model="model.uso" required ="" ></select>
 
 			</div>
 			
-			<div class="col-md-2">
+			<div class="col-md-3">
 
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aseguradora"><i class="fa fa-cube"></i></button>
-				Año :<select  ng-options="item as item.anio_antig for item in anio track by item.id_anio" type="text" class="form-control" ng-model="model.anio" required =""  ></select>
+
+				<label>Anio :</label><select  ng-options="item as item.anio_antig for item in anio track by item.id_anio" type="text" class="form-control" ng-model="model.anio" required =""  ></select>
+
+			</div>
+
+
+
+				<div class="col-md-3">
+
+				
+				<label>Programa :</label><select multiple ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="model.programa" required =""  ><option></option></select>
 
 			</div>
 
 
-			<div class="col-md-2">
 
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#programa"><i class="fa fa-plus"></i></button>
-				Programa :<select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="model.programa" required =""  ><option></option></select>
-
-			</div>
-
-			<div class="col-md-2">
-
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modelo"><i class="fa fa-plus"></i></button>
-				Marca / Modelo :<select ng-change='sumasegurada(model)' ng-options="item as item.id_marca__name_marca + '-' + item.id_modelo__name_model for item in man_autos track by item.id_modelo__name_model" type="text" class="form-control" ng-model="model.modelo" required =""  ></select>
+			<div class="col-md-3">
+			
+				<label>Marca / Modelo :</label><select multiple ng-change='sumasegurada(model)' ng-options="item as item.id_marca__name_marca + '-' + item.id_modelo__name_model for item in man_autos track by item.id_modelo__name_model" type="text" class="form-control" ng-model="model.modelo" required =""  ></select>
 
 			</div>
 
-			<div class="col-md-2">
 
-				<button type="button" class="btn btn-primary btn-sm"><i class="fa fa-cube"></i></button>
-				Ubicacion:
-				<select ng-options="item as item.label for item in items track by item.id" ng-model="model.ubicacion" class="form-control"></select>
+
+			<div class="col-md-3">
+
+				
+				<label>Ubicacion:</label>
+				<select  ng-options="item as item.label for item in items track by item.id" ng-model="model.ubicacion" class="form-control"></select>
 
 			</div>
 
+
+			<div class="col-md-3">
+
+				<label>Valor:</label>
 		
-			<div class="col-md-2">
 
-				<button type="button" class="btn btn-primary btn-sm"><i class="fa fa-cube"></i></button>
-				Valor:
 				<select ng-model="model.value" class="form-control"  required="required">}
 				<option value='Si'>Si</option>
 				<option value='No'>No</option>
@@ -104,29 +118,107 @@
 			
 			</form>
 
+
             </div>
 
-<!--lsklamsd-->
 
-   	<div class="jumbotron">
-         
 
-            <form ng-submit="addpoliticasuma(model)">
+
+    <style type="text/css">
+        
+.fixed-panel{
+    height:100px;
+    overflow-y:scroll;
+    padding: 2px;
+    padding-left:18px;
+}
+
+    </style>
+
+
+			
+
+		<!--Segundo Filtro-->
+
+
+		<div class="jumbotron" ng-show='segundofiltro'>
+		
+			<form ng-submit="addpoliticagps2(model,item)">
 
 			<div class='row'>
+            <div class="col-md-3">
 
-                        <div class="col-md-4">
+				
+				<label>Aseguradora :</label><select multiple ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="model.aseguradora" required =""  ></select>
 
-                        <label>Aseguradora </label><select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="model.aseguradora" required =""  ></select>
-
-                        </div>
+			</div>
 
 
-                        <div class="col-md-4">
 
-                        <label>Programa </label><select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="model.programa" required =""  ><option></option></select>
+			<div class="col-md-3">
 
-                        </div>
+				
+				<label>Programa :</label><select multiple ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="model.programa" required =""  ><option></option></select>
+
+			</div>
+
+			<div class="col-md-3">
+
+    <label>Marca</label>
+
+
+        <div class="panel panel-success">
+                <input type="" class='form-control' name="" ng-model='marc'> 
+                <div class="fixed-panel" >   
+                    <div class="checkbox" ng-repeat='contact in marcas | filter: marc'>
+                    <label><input ng-click='traemodelo(contact)' ng-model='contact.master' type="checkbox" value="" >{{contact.name_marca}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    <div class="col-md-3">
+
+
+    <label>Modelos <span ng-if='modelitos.length>0'>de  {{modelitos.length}} marcas </span></label>
+
+
+
+        <div class="panel panel-success">
+                <input type="" class='form-control' name="" ng-model='modelo'> 
+                <div class="fixed-panel" >   
+                    <div class="checkbox" ng-repeat='contact in modelitos | filter: modelo'>
+
+                        <label><i class="fa fa-car" aria-hidden="true"></i> {{contact[0].id_marca__name_marca}} 
+
+                            <input type="checkbox" value="" ng-model='contact.checkmarca' ng-click='marcacheck(contact)'></label>
+
+                       <div class="checkbox" ng-repeat='item in contact'>
+                        
+                        <label><input type="checkbox" value="" ng-model='item.checkmodel'>{{item.model}}</label>
+
+                       </div> 
+                    
+                    </div>
+                </div>
+            </div>
+    </div>
+
+			<div class="col-md-3">
+
+				
+				<label>Valor :</label><input class='form-control' ng-model='model.valor'></input>
+
+			</div>
+
+
+			</div>
+
+		
 
 
                         <div class="col-md-4">

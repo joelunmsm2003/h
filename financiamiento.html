@@ -15,7 +15,6 @@
 			<ng-include src="'menu.html'"></ng-include>
       
 
-        
 
 
     	<div class="container">	
@@ -36,7 +35,9 @@
 
 				<!--<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#servicio"><i class="fa fa-plus"></i></button>-->
 				<label>Financiamiento:</label>
-				<select ng-options="item as item.financiamiento for item in financiamiento track by item.financiamiento" type="text" class="form-control" ng-model="model.financiamiento" required =""  ></select>
+
+				<select ng-options="item as item.financiamiento for item in listafinanciamiento track by item.financiamiento" type="text" class="form-control" ng-model="model.financiamiento" required =""  ></select>
+
 
 			</div>
 
@@ -106,7 +107,7 @@
             </thead>
 
 
-            <tr  ng-repeat="contact in listfinanase | filter:data" class='active' ts-repeat>
+            <tr  ng-repeat="contact in listafinance | filter:data" class='active' ts-repeat>
 
 				<td>{{contact.id_finan__financiamiento}}</td>
 				<td>{{contact.id_aseg__name_asegurad}}</td>
