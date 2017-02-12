@@ -32,7 +32,15 @@ $scope.segundofiltro=true
 
     $scope.model.marca = $scope.marcas[73]
 
-    console.log('marcas',$scope.marcas)
+
+
+    for (m in $scope.marcas){
+
+      console.log(m)
+
+      $scope.marcas[m].master = false
+
+    }
 
     });
 
@@ -274,11 +282,75 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
     $scope.traemodelo = function(data){
 
 
-      console.log(data)
+      console.log('traemodelo',data)
+
+
+      $http.get(host+"/modelo/"+data.id_marca+'/').success(function(response) {
+
+      $scope.modeloset = response;
+
+      $scope.modelitos.push($scope.modeloset)
 
 
 
-       $http.get(host+"/modelo/"+data.id_marca+'/').success(function(response) {$scope.modeloset = response;
+
+      if (data.master == false){
+
+        $scope.modeloset.checkmarcaprincipal = false
+ 
+      
+      }
+
+      else{
+
+        $scope.modeloset.checkmarcaprincipal = true 
+       
+     
+      }
+
+      console.log('$scope.modeloset',$scope.modeloset)
+
+       $scope.modeloset.marca = $scope.modeloset[0].id_marca__name_marca
+
+
+      con = $filter('filter')($scope.modelitos,{'marca' : $scope.modeloset[0].id_marca__name_marca}).length
+
+      console.log('con',con)
+
+      if(con==0){
+
+      $scope.modelitos.push($scope.modeloset)
+
+      }
+      else{
+
+        if(data.master == false){
+
+          $filter('filter')($scope.modelitos,{'marca' : $scope.modeloset[0].id_marca__name_marca})[0].checkmarcaprincipal = false
+
+        }
+
+      }
+
+      console.log('checkmarcaprincipal',$scope.modelitos)
+
+
+      $scope.modelitos = $filter('filter')($scope.modelitos,{'checkmarcaprincipal' : true})
+
+
+
+      })
+
+      /*
+
+
+
+       $http.get(host+"/modelo/"+data.id_marca+'/').success(function(response) {
+
+
+      $scope.modeloset = response;
+
+      console.log(response)
 
 
       for(x in $scope.modeloset){
@@ -291,7 +363,7 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
       console.log('uueue',$scope.modeloset)
 
 
-      if (data.master == true){
+      if (data.master == false){
 
         $scope.modeloset.checkmarcaprincipal = true
         $scope.modeloset.marca = $scope.modeloset[0].id_marca__name_marca
@@ -309,6 +381,8 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
       con = $filter('filter')($scope.modelitos,{'marca' : $scope.modeloset[0].id_marca__name_marca}).length
 
+      console.log('con',con)
+
       if(con==0){
 
       $scope.modelitos.push($scope.modeloset)
@@ -324,12 +398,17 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
       }
 
+       console.log('Modelitos',$scope.modelitos)
 
-      $scope.modelitos = $filter('filter')($scope.modelitos,{'checkmarcaprincipal' : true})
 
-      console.log('Modelitos',$scope.modelitos)
 
+     $scope.modelitos = $filter('filter')($scope.modelitos,{'checkmarcaprincipal' : true})
+
+     
       });
+
+
+      */
 
 
 

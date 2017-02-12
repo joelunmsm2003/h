@@ -16,28 +16,34 @@
 
   
 
+		  
+
     	<div class="container">	
 
     	<h2>Tasas</h2><br>
 
-    		<ng-include src="'modales.html'"></ng-include>		
+    		<ng-include src="'modales.html'"></ng-include>	
+
 		
 			<div class='panel'>
+
+
+    		<div class="jumbotron"> 
 
 			<form ng-submit="addtasa(model)">
 
 			<div class='row'>
             <div class="col-md-2">
 
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aseguradora"><i class="fa fa-plus"></i></button>
-				Aseguradora:) :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="model.aseguradora" required =""  ></select>
+			
+				Aseguradora :<select  multiple ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="model.aseguradora" required =""  ></select>
 
 			</div>
 
 			<div class="col-md-2">
 
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalidad"><i class="fa fa-plus"></i></button>
-				Modalidad :<select  ng-options="item as item.name_modalidad for item in modalidad track by item.id_modalidad" type="text" class="form-control" ng-model="model.modalidad" required =""  ></select>
+			
+				Modalidad :<select multiple ng-options="item as item.name_modalidad for item in modalidad track by item.id_modalidad" type="text" class="form-control" ng-model="model.modalidad" required =""  ></select>
 
 			</div>
 
@@ -46,9 +52,8 @@
 
 			<div class="col-md-2">
 
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uso"><i class="fa fa-plus"></i></button>
 				Uso:
-				<select ng-options="item as item.uso for item in uso track by item.id_uso" type="text" class="form-control" ng-model="model.uso" required ="" ></select>
+				<select multiple ng-options="item as item.uso for item in uso track by item.id_uso" type="text" class="form-control" ng-model="model.uso" required ="" ></select>
 
 			</div>
 
@@ -56,37 +61,36 @@
 
 				<div class="col-md-2" ng-show='False'>
 
-				<button type="button" class="btn btn-primary btn-sm" ><i class="fa fa-cube"></i></button>
-				Categorias :<select  ng-options="item as item.categoria for item in categorias track by item.id_categ" type="text" class="form-control" ng-model="model.categoria" required =""  ></select>
+
+				Categorias :<select multiple ng-options="item as item.categoria for item in categorias track by item.id_categ" type="text" class="form-control" ng-model="model.categoria" required =""  ></select>
 
 			</div>
 
 			<div class="col-md-2">
 
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aseguradora"><i class="fa fa-cube"></i></button>
-				Anio :<select  ng-options="item as item.anio_antig for item in anio track by item.id_anio" type="text" class="form-control" ng-model="model.anio" required =""  ></select>
+
+				Anio :<select multiple  ng-options="item as item.anio_antig for item in anio track by item.id_anio" type="text" class="form-control" ng-model="model.anio" required =""  ></select>
 
 			</div>
 
 			<div class="col-md-2">
 
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aseguradora"><i class="fa fa-plus"></i></button>
-				Riesgo :<select  ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo" type="text" class="form-control" ng-model="model.riesgo" required =""  ></select>
+		
+				Riesgo :<select multiple ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo" type="text" class="form-control" ng-model="model.riesgo" required =""  ></select>
 
 			</div>
 
 				<div class="col-md-2">
 
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#programa"><i class="fa fa-plus"></i></button>
-				Programa :<select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="model.programa" required =""  ></select>
+				
+				Programa :<select multiple ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="model.programa" required =""  ></select>
 
 			</div>
 
 			<div class="col-md-2">
 
-				<button type="button" class="btn btn-primary btn-sm"><i class="fa fa-cube"></i></button>
 				Ubicacion:
-				<select ng-options="item as item.label for item in items track by item.id" ng-model="model.ubicacion" class="form-control"></select>
+				<select multiple ng-options="item as item.label for item in items track by item.id" ng-model="model.ubicacion" class="form-control"></select>
 
 
 			</div>
@@ -94,7 +98,7 @@
 			
 			<div class="col-md-2">
 
-				<button type="button" class="btn btn-primary btn-sm"><i class="fa fa-cube"></i></button>
+	
 				Valor:
 				<input type="text" ng-model="model.value" class="form-control"  required="required">
 
@@ -102,7 +106,7 @@
 
 			<div class="col-md-2">
 
-				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#clase"><i class="fa fa-plus"></i></button>
+
 				Tipo:
 				<select  multiple ng-options="item as item.clase for item in clases track by item.id_clase" type="text" class="form-control" ng-model="model.clase" required =""  ></select>
 
@@ -112,10 +116,19 @@
 
 			
 								
+			<div class='row'>
 
+			<div class='col-md-12'>
 			<button type='submit' class='btn btn-primary'>Agregar</button>
-			
+
+			</div>
+
+			</div>
+
+
 			</form>
+			</div>
+
 			</div>
        
         <!--Filtro de Busqueda-->
