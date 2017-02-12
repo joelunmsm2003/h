@@ -164,6 +164,8 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
     $http.get(host+"/listagps/").success(function(response) {$scope.gps = response;
 
+      console.log('GPS...',$scope.gps.length)
+
   
     });
 
@@ -674,10 +676,17 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
       console.log('GPS....',model)
 
+      var todo ={
+
+        modelitos:$scope.modelitos,
+        gps:model
+      }
+
+
        $http({
 
         url: host+"/addpoliticagps/",
-        data: model,
+        data: todo,
         method: 'POST',
      
         }).
@@ -701,7 +710,6 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
       var todo ={
 
-        modelitos:$scope.modelitos,
         gps:model
       }
 
