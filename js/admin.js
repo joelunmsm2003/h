@@ -49,6 +49,8 @@ $scope.segundofiltro=true
 
 
   $http.get(host+"/listfinanase/").success(function(response) {$scope.listafinance = response;
+
+    console.log('finanzas....',$scope.listafinance)
     });
 
 
