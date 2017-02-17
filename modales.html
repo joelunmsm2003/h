@@ -624,13 +624,12 @@
 
        Tipo:<select  ng-options="item as item.clase for item in clases track by item.id_clase" type="text" class="form-control" ng-model="edit.clase" required =""  ></select>
 
-       Categorias :<select  ng-options="item as item.categoria for item in categorias track by item.id_categ" type="text" class="form-control" ng-model="edit.categoria" required =""  ></select>
-
        Programa :<select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="edit.programa" required =""  ></select>
 
        Anio :<select  ng-options="item as item.anio_antig for item in anio track by item.id_anio" type="text" class="form-control" ng-model="edit.anio" required =""  ></select>
 
        Riesgo :<select  ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo" type="text" class="form-control" ng-model="edit.riesgo" required =""  ></select>
+
 
        Valor:<input type="text" ng-model="edit.value" class="form-control"  required="required">
 
@@ -647,4 +646,45 @@
 
   </div>
 </div>
+
+<div id="editfin" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Editar Financiamiento</h4>
+      </div>
+      <form class="sky-form" ng-submit="savefinancia(edit)">
+      <div class="modal-body">
+         
+
+
+
+      Financiamiento :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ></select>
+         
+        Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ></select>
+
+
+
+       Cuota:<input type="text" ng-model="edit.cuota" class="form-control"  required="required">
+
+       Factor:<input type="text" ng-model="edit.tea" class="form-control"  required="required">
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button class="btn btn-primary" type="submit">Editar</button>
+        
+      </div>
+      </form>
+
+    </div>
+
+  </div>
+</div>
+
+
 

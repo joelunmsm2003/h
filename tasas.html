@@ -35,14 +35,14 @@
 			<div class='row'>
             <div class="col-md-2">
 
-			
+			<button type="button"  class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aseguradora"><i class="fa fa-plus"></i></button>
 				Aseguradora :<select  multiple ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="model.aseguradora" required =""  ></select>
 
 			</div>
 
 			<div class="col-md-2">
 
-			
+			<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalidad"><i class="fa fa-plus"></i></button>
 				Modalidad :<select multiple ng-options="item as item.name_modalidad for item in modalidad track by item.id_modalidad" type="text" class="form-control" ng-model="model.modalidad" required =""  ></select>
 
 			</div>
@@ -52,6 +52,7 @@
 
 			<div class="col-md-2">
 
+				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#uso"><i class="fa fa-plus"></i></button>
 				Uso:
 				<select multiple ng-options="item as item.uso for item in uso track by item.id_uso" type="text" class="form-control" ng-model="model.uso" required ="" ></select>
 
@@ -82,7 +83,7 @@
 
 				<div class="col-md-2">
 
-				
+				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#programa"><i class="fa fa-plus"></i></button>
 				Programa :<select multiple ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="model.programa" required =""  ></select>
 
 			</div>
@@ -106,7 +107,7 @@
 
 			<div class="col-md-2">
 
-
+				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#clase"><i class="fa fa-plus"></i></button>
 				Tipo:
 				<select  multiple ng-options="item as item.clase for item in clases track by item.id_clase" type="text" class="form-control" ng-model="model.clase" required =""  ></select>
 

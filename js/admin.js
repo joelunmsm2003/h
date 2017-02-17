@@ -1209,6 +1209,7 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
         $scope.edit.deduccion = $scope.deducciones[model.id_deduc-1]
         $scope.edit.cobertura = $scope.coberturas[model.id_cob-1]
         $scope.edit.servicio = $scope.listaservice[model.id_serv-1]
+        // $scope.edit.tea 
         //$scope.edit.riesgo = $scope.riesgos[model.riesgo-1]
 
         $scope.edit.riesgo = $filter('filter')($scope.riesgos,{'tipo_riesgo' : model.riesgo__tipo_riesgo})[0]
@@ -1237,6 +1238,30 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
       
     });
+
+        })
+
+
+
+    }
+
+        $scope.savefinancia = function (model) {
+
+        console.log(model)
+
+        $('#editcob').modal('hide')
+        $('.modal-backdrop').remove();
+
+        $http({
+
+        url: host+"/savefinanc/",
+        data: model,
+        method: 'POST',
+     
+        }).
+        success(function(data) {
+
+          $route.reload()
 
         })
 
