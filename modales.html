@@ -582,14 +582,18 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Editar Servicio</h4>
+        <h4 class="modal-title">Editar Servicio </h4>
       </div>
       <form class="sky-form" ng-submit="saveserv(edit)">
       <div class="modal-body">
+      
       Servicio:
-        {{edit.id_serv__services}}<br></br>
+       
+      <select  ng-options="item as item.services for item in listaservice track by item.services" type="text" class="form-control" ng-model="edit.servicio" required =""  ></select>
+
       Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ></select>
       Valor :<input  ng-options="item as item.valor track by item.id_serv" type="text" class="form-control" ng-model="edit.valor" required =""  >
+      
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

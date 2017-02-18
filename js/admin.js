@@ -578,7 +578,7 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
        $http({
 
-        url: host+"/eliminarfin/",
+        url: host+"/eliminarfinan/",
         data: model,
         method: 'POST',
      
@@ -1358,7 +1358,7 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
      $scope.saveserv = function (model) {
 
-        console.log(model)
+        console.log('Editando..',model)
 
         $('#editserv').modal('hide')
         $('.modal-backdrop').remove();
