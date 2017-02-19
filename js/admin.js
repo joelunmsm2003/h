@@ -572,6 +572,25 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
         })
     }
 
+      $scope.eliminarprima = function (model) {
+
+      console.log(model)
+
+       $http({
+
+        url: host+"/eliminarprima/",
+        data: model,
+        method: 'POST',
+     
+        }).
+        success(function(data) {
+
+          $route.reload();
+
+        })
+    }
+
+
        $scope.eliminarfin = function (model) {
 
       console.log(model)
@@ -831,15 +850,23 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
     }
 
-    $scope.addauto = function (model) {
+    $scope.addauto = function (model,item) {
 
 
-      console.log(model)
+      
+
+      var todo={
+
+        'model':model,
+        'item':$scope.modelitos
+      }
+
+      console.log(todo)
 
        $http({
 
         url: host+"/addauto/",
-        data: model,
+        data: todo,
         method: 'POST',
      
         }).
@@ -1238,6 +1265,30 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
       
     });
+
+        })
+
+
+
+    }
+
+     $scope.saveprimas = function (model) {
+
+        console.log(model)
+
+        $('#editcob').modal('hide')
+        $('.modal-backdrop').remove();
+
+        $http({
+
+        url: host+"/saveprimas/",
+        data: model,
+        method: 'POST',
+     
+        }).
+        success(function(data) {
+
+          $route.reload()
 
         })
 

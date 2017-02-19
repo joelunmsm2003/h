@@ -101,12 +101,7 @@ Programa:<select  multiple ng-options="item as item.program for item in programa
 </div>
 
 
-            <div class="col-md-2">
-
-                <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-cube"></i></button>
-                Año :<input type="text" ng-model="model.aniox" class="form-control"  required="required">
-
-            </div>
+     
 
             <div class="col-md-2">
                  <button type="button" class="btn btn-primary btn-sm" ><i class="fa fa-cube"></i></button>
@@ -192,8 +187,9 @@ Programa:<select  multiple ng-options="item as item.program for item in programa
                 <th class="id_deduc__deducible">Deducible <a ng-click="sort_by('id_deduc__deducible',currentPage)"><i class="icon-sort"></i></a></th>
                 <th class="id_aseg__name_asegurad">Seguro <a ng-click="sort_by('id_aseg__name_asegurad',currentPage)"><i class="icon-sort"></i></a></th>
                 <th class="modalidad__name_modalidad">Modalidad <a ng-click="sort_by('modalidad__name_modalidad',currentPage)"><i class="icon-sort"></i></a></th>
-                <th class="anio__anio_antig">Año <a ng-click="sort_by('anio__anio_antig',currentPage)"><i class="icon-sort"></i></a></th>
-                <th class="id_uso__uso" >Uso <a ng-click="sort_by('id_uso__uso',currentPage)"><i class="icon-sort"></i></a></th>
+                <!-- <th class="anio__anio_antig">Año <a ng-click="sort_by('anio__anio_antig',currentPage)"><i class="icon-sort"></i></a></th>
+               -->  
+               <th class="id_uso__uso" >Uso <a ng-click="sort_by('id_uso__uso',currentPage)"><i class="icon-sort"></i></a></th>
                 <th class="tipo__clase" >Tipo <a ng-click="sort_by('tipo__clase',currentPage)"><i class="icon-sort"></i></a></th>
       
                 <th class="programa__program" >Programa <a ng-click="sort_by('programa__program',currentPage)"><i class="icon-sort"></i></a></th>
@@ -215,7 +211,7 @@ Programa:<select  multiple ng-options="item as item.program for item in programa
                 <td>{{contact.id}}-{{contact.id_deduc__deducible| limitTo: 40}}</td>
                 <td>{{contact.id_aseg__name_asegurad}}</td>
                 <td>{{contact.modalidad__name_modalidad}}</td>
-                <td>{{contact.anio__anio_antig}}</td>
+               <!--  <td>{{contact.anio__anio_antig}}</td> -->
          
                 <td>{{contact.id_uso__uso}}</td>
                 <td>{{contact.tipo__clase}}</td>

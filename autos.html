@@ -23,10 +23,10 @@
 
     		<ng-include src="'modales.html'"></ng-include>		
 		
-			<form ng-submit="addauto(model)">
+			<form ng-submit="addauto(model,item)">
 
 			<div class='row'>
-            <div class="col-md-2">
+<!--             <div class="col-md-2">
 
 				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#marca"><i class="fa fa-plus"></i></button>
 				Marca :<select multiple ng-options="item as item.name_marca for item in marcas track by item.id_marca" type="text" class="form-control" ng-model="model.marca" required =""  ></select>
@@ -39,8 +39,8 @@
 				Modelo :<select multiple ng-options="item as item.name_model for item in modelos track by item.id_model" type="text" class="form-control" ng-model="model.modelo" required =""  ></select>
 
 			</div>
-
-                <div class="col-md-2">
+ -->
+                <div class="col-md-3">
 
                                                 <label>Marca</label>
 
@@ -54,7 +54,7 @@
                                                 </div>
                                                 </div>
 
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
 
                                                         <label>Modelos <span ng-if='modelitos.length>0'>de  {{modelitos.length}} marcas </span></label>
 
@@ -79,7 +79,7 @@
                                                 </div>
 
 
-			<div class="col-md-2">
+			<div class="col-md-3">
 
 				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#clase"><i class="fa fa-plus"></i></button>
 				Clase:
@@ -87,7 +87,7 @@
 
 			</div>
 
-			<div class="col-md-2" >
+			<div class="col-md-3" >
 
 
 			<button type="button" class="btn btn-primary btn-sm"  ><i class="fa fa-cube"></i></button>
@@ -101,7 +101,7 @@
 			</div>
 
 
-			<div class="col-md-2">
+			<div class="col-md-3">
 
 				<button type="button" class="btn btn-primary btn-sm"  ><i class="fa fa-cube"></i></button>
 				

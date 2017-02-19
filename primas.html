@@ -85,7 +85,7 @@
         <!--Contador-->
 
       <label><i class="fa fa-caret-square-o-right" aria-hidden="true"></i>
-        Resultado  <span ng-if='data'>para {{data}}</span>: {{(man_tasas | filter: data).length }}</label>
+        Resultado  <span ng-if='data'>para {{data}}</span>: {{(primas | filter: data).length }}</label>
 
 			
 
@@ -110,7 +110,7 @@
                 <th class="programa__program" >Programa <a ng-click="sort_by('programa__program',currentPage)"><i class="icon-sort"></i></a></th>
                 <th class="primaminima" >Valor Prima Minima <a ng-click="sort_by('primaminima',currentPage)"><i class="icon-sort"></i></a></th>
 
-            
+                <th></th>
                             
             </tr>
 
@@ -129,11 +129,11 @@
             
               
 
-                <!--<td>
+                <td>
                
-                <a ng-click="editar(contact)" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edittasa"><i class="fa fa-edit"></i></a>
-                 <a ng-click="eliminartasa(contact)" class="btn btn-sm btn-primary" ><i class="fa fa-trash"></i></a>
-                </td>-->
+                <a ng-click="editar(contact)" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editprima"><i class="fa fa-edit"></i></a>
+                 <a ng-click="eliminarprima(contact)" class="btn btn-sm btn-primary" ><i class="fa fa-trash"></i></a>
+                </td>
 
             </tr>
         </tbody>
