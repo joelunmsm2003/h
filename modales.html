@@ -429,15 +429,18 @@
 
       Cobertura :{{edit.id_cob__descripcion}}<br></br>
 
-      Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ></select>
+      Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ><option></option></select>
          
        Uso :<select ng-options="item as item.uso for item in uso track by item.id_uso" type="text" class="form-control" ng-model="edit.uso" required ="" ></select>
 
-       Modalidad :<select  ng-options="item as item.name_modalidad for item in modalidad track by item.id_modalidad" type="text" class="form-control" ng-model="edit.modalidad" required =""  ></select>
+       Modalidad :<select  ng-options="item as item.name_modalidad for item in modalidad track by item.id_modalidad" type="text" class="form-control" ng-model="edit.modalidad" required =""  ><option></option></select>
+
+
+       Tipo:<select  ng-options="item as item.clase for item in clases track by item.id_clase" type="text" class="form-control" ng-model="edit.clase" required =""  ><option></option></select>
 
   
 
-       Programa :<select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="edit.programa" required =""  ></select>
+       Programa :<select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="edit.programa" required =""  ><option></option></select>
 
        Anio :<input type="text" ng-model="edit.antigued" class="form-control"  required="required">
 
@@ -475,7 +478,7 @@
          
      
       Tipo
-       <select ng-options="item as item.clase for item in clases track by item.id_clase" type="text" class="form-control" ng-model="edit.clase" required =""  ></select>
+       <select ng-options="item as item.clase for item in clases track by item.id_clase" type="text" class="form-control" ng-model="edit.clase" required =""  ><option></option></select>
          Valor:
         <input type="text"  class="form-control" ng-model='edit.valor' required="required">
 
@@ -511,19 +514,19 @@
 
     
 
-      Aseguradora :<select ng-options="item as item.name_asegurad for item in aseguradoras" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ></select>
+      Aseguradora :<select ng-options="item as item.name_asegurad for item in aseguradoras" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ><option></option></select>
          
-       Uso :<select ng-options="item as item.uso for item in uso track by item.id_uso" type="text" class="form-control" ng-model="edit.uso" required ="" ></select>
+       Uso :<select ng-options="item as item.uso for item in uso track by item.id_uso" type="text" class="form-control" ng-model="edit.uso" required ="" ><option></option></select>
 
-       Modalidad :<select  ng-options="item as item.name_modalidad for item in modalidad track by item.id_modalidad" type="text" class="form-control" ng-model="edit.modalidad" required =""  ></select>
+       Modalidad :<select  ng-options="item as item.name_modalidad for item in modalidad track by item.id_modalidad" type="text" class="form-control" ng-model="edit.modalidad" required =""  ><option></option></select>
 
-       Tipo:<select  ng-options="item as item.clase for item in clases track by item.id_clase" type="text" class="form-control" ng-model="edit.clase" required =""  ></select>
+       Tipo:<select  ng-options="item as item.clase for item in clases track by item.id_clase" type="text" class="form-control" ng-model="edit.clase" required =""  ><option></option></select>
 
-       Programa :<select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="edit.programa" required =""  ></select>
+       Programa :<select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="edit.programa" required =""  ><option></option></select>
 
-       Anio :<select  ng-options="item as item.anio_antig for item in anio track by item.id_anio" type="text" class="form-control" ng-model="edit.anio" required =""  ></select>
+       Anio :<select  ng-options="item as item.anio_antig for item in anio track by item.id_anio" type="text" class="form-control" ng-model="edit.anio" required =""  ><option></option></select>
 
-        Riesgo :<select  ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo" type="text" class="form-control" ng-model="edit.riesgo" required =""  ></select>
+        Riesgo :<select  ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo" type="text" class="form-control" ng-model="edit.riesgo" required =""  ><option></option></select>
 
        Valor:<input type="text" ng-model="edit.value" class="form-control"  required="required">
 
@@ -558,9 +561,9 @@
 
        <br></br>
 
-      Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora"  ></select>
-      Tipo:<select  ng-options="item as item.clase for item in clases track by item.id_clase" type="text" class="form-control" ng-model="edit.clase"   ></select>
-      Riesgo :<select  ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo" type="text" class="form-control" ng-model="edit.riesgo" ></select>
+      Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora"  ><option></option></select>
+      Tipo:<select  ng-options="item as item.clase for item in clases track by item.id_clase" type="text" class="form-control" ng-model="edit.clase"   ><option></option></select>
+      Riesgo :<select  ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo" type="text" class="form-control" ng-model="edit.riesgo" ><option></option></select>
 
       </div>
       <div class="modal-footer">
@@ -591,7 +594,7 @@
        
       <select  ng-options="item as item.services for item in listaservice track by item.services" type="text" class="form-control" ng-model="edit.servicio" required =""  ></select>
 
-      Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ></select>
+      Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ><option></option></select>
       Valor :<input  ng-options="item as item.valor track by item.id_serv" type="text" class="form-control" ng-model="edit.valor" required =""  >
       
       </div>
@@ -620,19 +623,19 @@
 
 
 
-      Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ></select>
+      Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ><option></option></select>
          
        Uso :<select ng-options="item as item.uso for item in uso track by item.id_uso" type="text" class="form-control" ng-model="edit.uso" required ="" ></select>
 
-       Modalidad :<select  ng-options="item as item.name_modalidad for item in modalidad track by item.id_modalidad" type="text" class="form-control" ng-model="edit.modalidad" required =""  ></select>
+       Modalidad :<select  ng-options="item as item.name_modalidad for item in modalidad track by item.id_modalidad" type="text" class="form-control" ng-model="edit.modalidad" required =""  ><option></option></select>
 
-       Tipo:<select  ng-options="item as item.clase for item in clases track by item.id_clase" type="text" class="form-control" ng-model="edit.clase" required =""  ></select>
+       Tipo:<select  ng-options="item as item.clase for item in clases track by item.id_clase" type="text" class="form-control" ng-model="edit.clase" required =""  ><option></option></select>
 
-       Programa :<select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="edit.programa" required =""  ></select>
+       Programa :<select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="edit.programa" required =""  ><option></option></select>
 
-       Anio :<select  ng-options="item as item.anio_antig for item in anio track by item.id_anio" type="text" class="form-control" ng-model="edit.anio" required =""  ></select>
+       Anio :<select  ng-options="item as item.anio_antig for item in anio track by item.id_anio" type="text" class="form-control" ng-model="edit.anio" required =""  ><option></option></select>
 
-       Riesgo :<select  ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo" type="text" class="form-control" ng-model="edit.riesgo" required =""  ></select>
+       Riesgo :<select  ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo" type="text" class="form-control" ng-model="edit.riesgo" required =""  ><option></option></select>
 
 
        Valor:<input type="text" ng-model="edit.value" class="form-control"  required="required">
@@ -665,9 +668,9 @@
 
 
 
-      Financiamiento :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ></select>
+      Financiamiento :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ><option></option></select>
          
-        Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ></select>
+        Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ><option></option></select>
 
 
 
