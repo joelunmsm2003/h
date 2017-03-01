@@ -18,6 +18,8 @@
 
   <div class="container">
 
+
+
 	  <h2>Politicas GPS</h2>
 	  <br>  
 
@@ -27,7 +29,7 @@
 
 	  </div>
 
-	
+	<br></br>
 
 	  <ng-include src="'modales.html'"></ng-include> 
 
@@ -47,7 +49,7 @@
 													<label>Aseguradora :</label><select multiple  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="model.aseguradora" required =""  ></select>
 
 													</div>
-
+<!-- 
 												<div class="col-md-3">
 
 													<label>Modalidad :</label><select multiple ng-options="item as item.name_modalidad for item in modalidad track by item.id_modalidad" type="text" class="form-control" ng-model="model.modalidad" required =""  ></select>
@@ -59,7 +61,7 @@
 													<label>Uso:</label>
 													<select multiple ng-options="item as item.uso for item in uso track by item.id_uso" type="text" class="form-control" ng-model="model.uso" required ="" ></select>
 
-												</div>
+												</div> -->
 
 												<div class="col-md-3">
 
@@ -226,8 +228,8 @@
 
 					<th class="modalidad__name_modalidad">Modelo <a ng-click="sort_by('modalidad__name_modalidad',currentPage)"><i class="icon-sort"></i></a></th>
 
-					<th class="id_uso__uso" >Uso <a ng-click="sort_by('id_uso__uso',currentPage)"><i class="icon-sort"></i></a></th>
-
+					<!-- <th class="id_uso__uso" >Uso <a ng-click="sort_by('id_uso__uso',currentPage)"><i class="icon-sort"></i></a></th>
+ -->
 					<th class="tipo__clase" >Anio <a ng-click="sort_by('tipo__clase',currentPage)"><i class="icon-sort"></i></a></th>
 
 					<th class="anio__anio_antig" >Value <a ng-click="sort_by('anio__anio_antig',currentPage)"><i class="icon-sort"></i></a></th>
@@ -253,19 +255,19 @@
 
 				<td>{{contact.id_auto__id_modelo__name_model}}</td>
 
-				<td>{{contact.id_uso__uso}}</td>
+				<!-- <td>{{contact.id_uso__uso}}</td> -->
 
-				<td>{{contact.anio_antig}}</td>
+				<td>{{contact.anio_antig__anio_antig}}</td>
 				
 				<td>{{contact.value}}</td>
 
 				<td>{{contact.sumaminima}}</td>
 
-				<!--<td>
+				<td>
 			   
-				<a ng-click="editar(contact)" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edittasa"><i class="fa fa-edit"></i></a>
-				 <a ng-click="eliminartasa(contact)" class="btn btn-sm btn-primary" ><i class="fa fa-trash"></i></a>
-			 </td>-->
+				<a ng-click="editar(contact)" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editpolitica"><i class="fa fa-edit"></i></a>
+				 <a ng-click="eliminarpolitica(contact)" class="btn btn-sm btn-primary" ><i class="fa fa-trash"></i></a>
+			 </td>
 
 		 </tr>
 	 </tbody>

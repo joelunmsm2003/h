@@ -106,12 +106,12 @@ Uso:<select multiple  ng-options="item as item.uso for item in uso track by item
 <br>
 </div>
 
-			<div class="col-md-2">
+			<!-- <div class="col-md-2">
 
 
         Anio :<select multiple  ng-options="item as item.anio_antig for item in anio track by item.id_anio" type="text" class="form-control" ng-model="model.anio" required =""  ></select>
 
-      </div>
+      </div> -->
 			<div class="col-md-2">
 
 				<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#Edit"><i class="fa fa-cube"></i></button>
@@ -202,8 +202,8 @@ Uso:<select multiple  ng-options="item as item.uso for item in uso track by item
                 <th class="id_aseg__name_asegurad">Seguro <a ng-click="sort_by('id_aseg__name_asegurad',currentPage)"><i class="icon-sort"></i></a></th>
                  <th class="id_uso__uso" >Uso <a ng-click="sort_by('id_uso__uso',currentPage)"><i class="icon-sort"></i></a></th>
                 <th class="modalidad__name_modalidad">Modalidad <a ng-click="sort_by('modalidad__name_modalidad',currentPage)"><i class="icon-sort"></i></a></th>
-                <th class="anio__anio_antig">Año <a ng-click="sort_by('anio__anio_antig',currentPage)"><i class="icon-sort"></i></a></th>
-                <th class="programa__program" >Programa <a ng-click="sort_by('programa__program',currentPage)"><i class="icon-sort"></i></a></th>
+                <!-- <th class="anio__anio_antig">Año <a ng-click="sort_by('anio__anio_antig',currentPage)"><i class="icon-sort"></i></a></th>
+                --> <th class="programa__program" >Programa <a ng-click="sort_by('programa__program',currentPage)"><i class="icon-sort"></i></a></th>
 
                  <th class="tipo__clase" >Clase <a ng-click="sort_by('tipo__clase',currentPage)"><i class="icon-sort"></i></a></th>
                 
@@ -225,7 +225,7 @@ Uso:<select multiple  ng-options="item as item.uso for item in uso track by item
                 <td>{{contact.id_aseg__name_asegurad}}</td>
                 <td>{{contact.id_uso__uso| limitTo:10}}</td>
                 <td>{{contact.modalidad__name_modalidad}}</td>
-                 <td>{{contact.antigued}}</td>
+                <!--  <td>{{contact.antigued}}</td> -->
                 
    
           

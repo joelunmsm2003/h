@@ -387,6 +387,32 @@
   </div>
 </div>
 
+<div id="nuevofinanciamiento" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Agregar Financiamientopue</h4>
+      </div>
+      <form class="sky-form" ng-submit="addfinanciamientopadre(model)">
+      <div class="modal-body">
+         
+        <input type="text"  class="form-control" ng-model='model.financiamiento' required="required">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button class="btn btn-primary" type="submit">Agregar</button>
+        
+      </div>
+      </form>
+
+    </div>
+
+  </div>
+</div>
+
 
 
 <div id="servicio" class="modal fade" role="dialog">
@@ -654,6 +680,50 @@
   </div>
 </div>
 
+<div id="editpolitica" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Editar Tasa</h4>
+      </div>
+      <form class="sky-form" ng-submit="savepoliticas(edit)">
+      <div class="modal-body">
+         
+
+
+
+      Aseguradora :<select  ng-options="item as item.name_asegurad for item in aseguradoras track by item.id_asegurad" type="text" class="form-control" ng-model="edit.aseguradora" required =""  ><option></option></select>
+         
+    <!--    Uso :<select ng-options="item as item.uso for item in uso track by item.id_uso" type="text" class="form-control" ng-model="edit.uso" required ="" ></select>
+
+       Modalidad :<select  ng-options="item as item.name_modalidad for item in modalidad track by item.id_modalidad" type="text" class="form-control" ng-model="edit.modalidad" required =""  ><option></option></select>
+
+       Tipo:<select  ng-options="item as item.clase for item in clases track by item.id_clase" type="text" class="form-control" ng-model="edit.clase" required =""  ><option></option></select> -->
+
+       Programa :<select  ng-options="item as item.program for item in programas track by item.id_program" type="text" class="form-control" ng-model="edit.programa" required =""  ><option></option></select>
+
+       Anio :<select  ng-options="item as item.anio_antig for item in anio track by item.id_anio" type="text" class="form-control" ng-model="edit.anio" required =""  ><option></option></select>
+
+      <!--  Riesgo :<select  ng-options="item as item.tipo_riesgo for item in riesgos track by item.id_riesgo" type="text" class="form-control" ng-model="edit.riesgo" required =""  ><option></option></select>
+ -->
+
+       Valor:<input type="text" ng-model="edit.value" class="form-control"  required="required">
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button class="btn btn-primary" type="submit">Editar</button>
+        
+      </div>
+      </form>
+
+    </div>
+
+  </div>
+</div>
 
 <div id="editprima" class="modal fade" role="dialog">
   <div class="modal-dialog">

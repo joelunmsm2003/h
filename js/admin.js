@@ -277,6 +277,33 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
   
     }
 
+     $scope.addfinanciamientopadre = function (model) {
+
+      console.log('agregandoooooo...')
+
+        $http({
+
+        url: host+"/addfinanciamiento/",
+        data: model,
+        method: 'POST',
+     
+        }).
+        success(function(data) {
+
+
+           $route.reload();
+
+        })
+
+        $('#nuevofinanciamiento').modal('hide')
+       $('.modal-backdrop').remove();
+
+
+
+
+  
+    }
+
     $scope.modelitos= []
 
     $scope.traemodelo = function(data){
@@ -589,6 +616,27 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
         })
     }
+
+       $scope.eliminarpolitica = function (model) {
+
+      console.log(model)
+
+       $http({
+
+        url: host+"/eliminarpolitica/",
+        data: model,
+        method: 'POST',
+     
+        }).
+        success(function(data) {
+
+          $route.reload();
+
+        })
+    }
+
+
+    
 
 
        $scope.eliminarfin = function (model) {
@@ -1217,18 +1265,22 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
         $scope.edit =model
 
+        console.log('editando..',model)
+
         console.log(model,$scope.clases)
 
    
     
         $scope.edit.uso = $scope.uso[model.id_uso-1]
        
-        $scope.edit.aseguradora = $filter('filter')($scope.aseguradoras,{'id_asegurad' : model.id_aseg})[0]
+        $scope.edit.aseguradora = $filter('filter')($scope.aseguradoras,{'name_asegurad' : model.id_aseg__name_asegurad})[0]
 
 
         $scope.edit.modalidad = $scope.modalidad[model.modalidad-1]
-        $scope.edit.anio = $scope.anio[model.anio-1]
-        $scope.edit.programa = $scope.programas[model.programa-1]
+
+        $scope.edit.anio = $filter('filter')($scope.anio,{'anio_antig' : model.anio_antig})[0]
+
+        $scope.edit.programa = $filter('filter')($scope.programas,{'program' : model.id_prog__program})[0]
 
         $scope.edit.clase = $filter('filter')($scope.clases,{'clase' : model.id_tipo__clase})[0]
 
@@ -1453,6 +1505,32 @@ $http.get(host+"/riesgosclase/").success(function(response) {$scope.man_riesgos 
 
 
     }
+
+
+    $scope.savepoliticas = function (model) {
+
+        console.log(model)
+
+        $('#editpolitica').modal('hide')
+        $('.modal-backdrop').remove();
+
+        $http({
+
+        url: host+"/savepoliticas/",
+        data: model,
+        method: 'POST',
+     
+        }).
+        success(function(data) {
+
+           location.reload()
+
+        })
+
+
+
+    }
+
 
 
 
