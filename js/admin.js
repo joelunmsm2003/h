@@ -31,17 +31,18 @@ $scope.exportarcobertura=function(data){
 
           console.log(data)
 
+
      
 
-          cobertura = "1"
+          programa = "1"
 
-          for (c in data.cobertura) { 
+          for (c in data.programa) { 
             
-            console.log(data.cobertura[c]['id_cobert'])
+            console.log(data.programa[c]['id_cobert'])
 
-            if(data.cobertura[c]['id_cobert']){
+            if(data.programa[c]['id_cobert']){
 
-              cobertura = cobertura + "x"+data.cobertura[c]['id_cobert']
+              programa = programa + "x"+data.programa[c]['id_cobert']
             }
 
             
@@ -66,18 +67,9 @@ $scope.exportarcobertura=function(data){
 
         } 
 
-        console.log(cobertura,aseguradora)
+        console.log(programa,aseguradora)
 
-        $scope.co = cobertura+aseguradora
-
-
-
-
-
-
-
-
-
+        $scope.co = programa+aseguradora
 
 }
 
