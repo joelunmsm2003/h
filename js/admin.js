@@ -13,10 +13,148 @@ $scope.segundofiltro=false
 }
 
 
+Array.prototype.insert = function ( index, item ) {
+    this.splice( index, 0, item );
+};
+
+$scope.traease=function(data){
+
+  console.log('gdg',data)
+
+  $scope.riesgoid=data.id_asegurad
+
+
+}
+
+$scope.exportarcobertura=function(data){
+
+
+          console.log(data)
+
+     
+
+          cobertura = "1"
+
+          for (c in data.cobertura) { 
+            
+            console.log(data.cobertura[c]['id_cobert'])
+
+            if(data.cobertura[c]['id_cobert']){
+
+              cobertura = cobertura + "x"+data.cobertura[c]['id_cobert']
+            }
+
+            
+
+        } 
+
+            aseguradora = "a1"
+
+            console.log('iii',data.aseguradora)
+
+
+          for (a in data.aseguradora) { 
+            
+            console.log(data.aseguradora[a]['id_asegurad'])
+
+            if(data.aseguradora[a]['id_asegurad']){
+
+              aseguradora = aseguradora + "x"+data.aseguradora[a]['id_asegurad']
+            }
+
+            
+
+        } 
+
+        console.log(cobertura,aseguradora)
+
+        $scope.co = cobertura+aseguradora
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+$scope.exportardeducible=function(data){
+
+
+          console.log('dedu',data.deduccion)
+
+     
+
+          deduccion = "1"
+
+          for (c in data.deduccion) { 
+            
+            console.log(data.deduccion[c]['id_deduc'])
+
+            if(data.deduccion[c]['id_deduc']){
+
+              deduccion = deduccion + "x"+data.deduccion[c]['id_deduc']
+            }
+
+            
+
+        } 
+
+            aseguradora = "a1"
+
+            console.log('iii',data.aseguradora)
+
+
+          for (a in data.aseguradora) { 
+            
+            console.log(data.aseguradora[a]['id_asegurad'])
+
+            if(data.aseguradora[a]['id_asegurad']){
+
+              aseguradora = aseguradora + "x"+data.aseguradora[a]['id_asegurad']
+            }
+
+            
+
+        } 
+
+        console.log(deduccion,aseguradora)
+
+        $scope.co = deduccion+aseguradora
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
 $scope.segundof=function(){
+
+  $scope.procesando = true
 
 $scope.primerfiltro =false
 $scope.segundofiltro=true
+
+ $http.get(host+"/listagps2/").success(function(response) {$scope.gps = response;
+
+      console.log('GPS...',$scope.gps.length)
+
+      $scope.procesando = false
+
+  
+    });
   
 }
 

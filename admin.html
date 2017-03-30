@@ -135,10 +135,14 @@ Uso:<select multiple  ng-options="item as item.uso for item in uso track by item
 </div>
 
 <div class='section'>
- <a href="http://cotizador.hermes.pe:800/expcob.php"><button type="button" class="btn btn-info ">Exportar</button></a>
+ <!--<a href="http://cotizador.hermes.pe:800/expcob.php"><button type="button"  ng-click="exportarcobertura(model)" class="btn btn-info ">Exportar</button></a>-->
 
 
-  <button type="button" class="btn btn-info " data-toggle="modal" data-target="#myModal">Agregar Masivos</button>
+
+<a ng-click="exportarcobertura(model)"  href='http://cotizador.hermes.pe:8000/exportarcobertura/{{co}}' class="btn btn-info ">Exportar</a>
+
+
+  <button  type="button" class="btn btn-info " data-toggle="modal" data-target="#myModal">Agregar Masivos</button>
 </div>
 
 
